@@ -13,6 +13,13 @@
 	<link href="<?php echo base_url()?>assets/front/css/prettyPhoto.css?<?php echo time() ?>" rel="stylesheet">
 	<link href="<?php echo base_url()?>assets/front/css/price-range.css?<?php echo time() ?>" rel="stylesheet">
 	<link href="<?php echo base_url()?>assets/front/css/animate.css?<?php echo time() ?>" rel="stylesheet">
+		
+	<script src="https://use.fontawesome.com/aa228547d6.js"></script>
+	
+
+	<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Tangerine">
+
 	
 	<!-- <link href="<?php echo base_url()?>assets/front/css/sliderprice.css" rel="stylesheet"> -->
 	<link href="<?php echo base_url()?>assets/front/css/jquery-ui.css" rel="stylesheet">
@@ -35,6 +42,8 @@
 </head><!--/head-->
 
 <body>
+
+
 	<header id="header"><!--header-->
 		<div class="header_top"><!--header_top-->
 			<div class="container">
@@ -102,7 +111,19 @@
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
 								
-								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+								<li id="account-menu-trigger"><a href="#"><i class="fa fa-user"></i> Account</a>
+
+								<div class="account-sub-menu">
+								<button type="button" class="btn btn-block btn-warning" id="sign-button-navbar">Sign In</button>
+								<ul>
+
+		             			    <li class=""><a href="">Boss Agents</a></li>
+									 
+									<li class=""><a href="">Merchants</a></li>
+
+                             </div>
+							
+							</li>
 								<li><a href="#"><i class="fa fa-star"></i> Compare</a></li>
 								<?php $customer_id = $this->session->userdata('cus_id');?>
 								<?php $shipping_id = $this->session->userdata('shipping_id');?>
@@ -147,11 +168,11 @@
 									
 								if($customer_id){?>
 								<li>
-									<a href="<?php echo base_url()?>logout"><i class="fa fa-lock"></i> Logout</a>
+								<!--	<a href="<?php //echo base_url()?>logout"><i class="fa fa-lock"></i> Logout</a>-->
 								</li>
 								<?php }else{ ?>
 								<li>
-									<a href="<?php echo base_url()?>checkout"><i class="fa fa-lock"></i> Login</a>
+									<!--<a href="<?php //echo base_url()?>checkout"><i class="fa fa-lock"></i> Login</a>-->
 								</li>
 								<?php } ?>
 								
@@ -176,48 +197,79 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="<?php echo base_url();?>" class="active">Home</a></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-									<ul role="menu" class="sub-menu">
-										<li><a href="<?php echo base_url()?>products">Products</a></li>
-											<?php if($this->cart->total_items()!=Null && $customer_id!=NULL){
-													?>
-											<li>
-												<a href="<?php echo base_url()?>billing">Checkout</a>
+							   <!--<li><a href="#"  style="color:#444444">Categories  <i class="fa fa-bars"></i></a>
+							
+							</li>-->
+								<li><a href="#" class=" active">Beauty & Health</a>
+								<div class="menu-overlay-1 menu-overlay">
 
-											</li>
-												<?php }elseif($this->cart->total_items()!=Null){?>
-											<li>
-												<a href="<?php echo base_url()?>checkout">Checkout</a>
+<div class="container-fluid menu-overflow-inner">
+	<div class="row">
 
-											</li>
-												<?php } ?>
-											<li>	
-												<a href="<?php echo base_url()?>show-cart">
-												<?php $cart_items =  $this->cart->total_items();
-													if($cart_items>0){
-												?> 
-												 Cart(<?php echo $cart_items;?>)
-												 <?php }else{?>
-												  Cart(empty)
-												 <?php } ?>
-												</a>
+	<div class="col-md-3">
+		<div>
 
-											</li>
-											<?php if($customer_id){?>
-											<li>
-												<a href="<?php echo base_url()?>logout"><i class="fa fa-lock"></i> Logout</a>
-											</li>
-											<?php }else{ ?>
-											<li>
-												<a href="<?php echo base_url()?>checkout"><i class="fa fa-lock"></i> Login</a>
-											</li>
-											<?php } ?>
-			 
-									</ul>
-								</li> 
-								<li><a href="<?php echo base_url()?>home/_404_page">404</a></li>
-								<li><a href="<?php echo base_url()?>contact">Contact</a></li>
+		<ul class="inside-menu-list">
+			<li><a href="">Beauty & Health</a></li>
+			<li><a href="">Makeup</a></li>
+			<li><a href="">Beauty</a></li>
+			<li><a href="">Hair</a></li>
+			<li><a href="">Jewellry</a></li>
+
+	</ul>
+
+	</div>
+
+	</div><!--/col-md-3-->
+
+	<div class="col-md-3">
+
+	<div>
+
+		<ul class="inside-menu-list">
+			<li><a href="">Groceries</a></li>
+			<li><a href="">Food</a></li>
+			<li><a href="">Beverages</a></li>
+			<li><a href="">Frozen Foods</a></li>
+			<li><a href="">Snacks</a></li>
+
+	</ul>
+
+	</div>
+
+
+	</div><!--/col-md-3-->
+
+	<div class="col-md-3">
+
+	<div>
+
+		<ul class="inside-menu-list">
+			<li><a href="">Computers</a></li>
+			<li><a href="">Laptops</a></li>
+			<li><a href="">Desktops</a></li>
+			<li><a href="">CPUs</a></li>
+			<li><a href="">Monitors</a></li>
+
+	</ul>
+
+	</div>
+
+
+	</div><!--/col-md-3-->
+
+	</div><!--/row-->
+
+	</div><!--/menu-overflow-inner-->
+
+
+</div><!--/menu-overlay-->
+							</li>
+								<li class="dropdown"><a href="#">Computers & Accessories</a></li> 
+								<li><a href="<?php echo base_url()?>home/_404_page">Phones & Tablets</a></li>
+								<li><a href="<?php echo base_url()?>contact">Fashion</a></li>
+								
+								<li><a href="#" class="categories-trigger-1">Others</a></li>
 							</ul>
 						</div>
 					</div>
@@ -237,7 +289,7 @@
 	echo $main_content; // Load a single page under header and footer
 }else{?>
 	<section id="slider"><!--slider-->
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-12">
 					<?php if(isset($slider)){
@@ -248,7 +300,7 @@
 		</div>
 	</section><!--/slider-->
 	<section>
-		<div class="container">
+		<div class="container-fluid main-container-fluid">
 			<div class="row">
 					<?php if(isset($category_brand)){
 						echo $category_brand;
@@ -257,12 +309,22 @@
 				<div class="col-sm-9 padding-right">
 					<?php if(isset($feature)){
 						echo $feature;
+
+					
 					}?>
 					
+
+					<?php if(isset($best_selling)){
+						echo $best_selling;
+
+					
+					}?>
 					<!-- This is Category Post option -->
 					
 					<?php if(isset($recommended)){
 						echo $recommended;
+
+						
 					}?>
 					
 				</div>
@@ -439,8 +501,15 @@
 	<script src="<?php echo base_url()?>assets/front/js/contact.js"></script>
 
 	<script src="<?php echo base_url()?>assets/front/js/main.js"></script>
+
+	
 	<!-- Price Range Script Start-->
-	<script type="text/javascript">  
+	<script type="text/javascript"> 
+	
+
+
+
+
  $(function() {
     $( "#slider-range" ).slider({
       range: true,
@@ -456,6 +525,12 @@
     $( "#amount" ).html( "$" + $( "#slider-range" ).slider( "values", 0 ) +
      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
   });
+
+  /************Account menu trigger */\
+
+ 
+
+ 
   </script>
 
 	<!-- Price Range Code end -->

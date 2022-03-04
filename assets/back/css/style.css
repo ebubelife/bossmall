@@ -233,6 +233,8 @@ limitations under the License.*/
     overflow-y: scroll;
 }
 
+.panel{overflow-x:auto;}
+
 /* Login Page */
 
  .login-panel {

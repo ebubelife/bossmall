@@ -28,8 +28,23 @@
                         <div class="col-lg-12">
                            <h5 style='color:red'> <?php echo validation_errors();?></h5>
                              <?php echo form_open_multipart('save-product','');?>
-                                <div class="form-group">
-                                    <label>Add Product Title</label>
+
+                             <?php if($stores) { ?>
+                             <div class="form-group">
+                                    <label>Select Store</label>
+                                    <select class="form-control" name="store_name" required>
+                                        <option>Select One</option>
+                                        <?php foreach($stores as $store){?>
+                                        <option value="<?php echo $store->id ?>"><?php echo $store->store_name; ?></option>
+                                        <?php }?>
+                                       
+                                      
+                                    </select>
+                            </div>
+                            <?php }?>                     
+
+                                  <div class="form-group">
+                                    <label>Add Product Name</label>
                                     <input type="text" class="form-control" value="" name="pro_title" required="">
                                 </div>
                                  <div class="form-group">
@@ -37,6 +52,7 @@
                                     <textarea  id="ck" class="form-control" rows="3" name="pro_desc"></textarea>
                                     <script>CKEDITOR.replace('ck')</script>
                                 </div>
+                               
                                  <div class="form-group">
                                     <label>Select Category</label>
                                     <select class="form-control" name="pro_cat">

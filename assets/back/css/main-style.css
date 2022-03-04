@@ -10,7 +10,7 @@ Author: http://binarytheme.com
 .user-section {
     margin-top:20px;
     font-size:22px;
-    background-color:rgb(83, 163, 163);
+    background-color:rgb(51, 153, 153);
 }
 .user-section-inner {
     height: 65px;
@@ -20,14 +20,14 @@ width: 65px;
 border-radius: 3px;
 overflow: hidden;
 display: inline-block;
-float: left;
+
 margin-right: 15px;
 margin-top: 20px;
 }
     .user-section-inner img {
         margin-left:10px;
-        width:55px;
-        height:60px;
+        width:60px;
+        height:60px; border-radius:50%;
         
     }
 .user-info {
@@ -51,7 +51,7 @@ margin-bottom: 0px
     background-color:rgba(74, 72, 126, 0);
 }
 .navbar-top-links  .open > a, .nav .open > a:hover, .nav .open > a:focus {
-    background-color: #75C5B8;
+    background-color: #afece2;
 }
 .navbar-top-links > li > a {
 color: #FFFFFF;
@@ -60,7 +60,7 @@ color: #FFFFFF;
 padding: 20px 15px;
 }
 #side-menu {
-    background-color:#04B173;
+    background-color:#052e50;
 }
 
  #side-menu a {
@@ -92,7 +92,7 @@ padding: 20px 15px;
 /* tap nvbar Section */
 
 #navbar {
-    background-color:rgb(83, 163, 163);
+    background-color:rgb(19, 72, 116);
 }
 
 .navbar-brand {

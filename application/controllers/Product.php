@@ -12,16 +12,24 @@ class Product extends CI_Controller{
 		}
 		$data = array();
 		$this->load->model("ProductModel");
+		$this->load->model("StoreModel");
 	}
 	public function add_product_form(){
 		$data['all_cat'] = $this->ProductModel->get_all_category();
 		$data['all_sub_cat'] = $this->ProductModel->get_all_sub_category();
+		$data['stores'] = $this->StoreModel->get_all_store();
 		$data['main_content'] = $this->load->view('back/add_product',$data,true);
 		$this->load->view('back/adminpanel',$data);
 	}
 	public function show_product_list(){
 		$data['all_product'] = $this->ProductModel->get_all_product();
 		$data['main_content'] = $this->load->view('back/product_list',$data,true);
+		$this->load->view('back/adminpanel',$data);
+	}
+
+	public function show_merchant_list(){
+		$data['all_product'] = $this->ProductModel->get_all_product();
+		$data['main_content'] = $this->load->view('back/merchant_list',$data,true);
 		$this->load->view('back/adminpanel',$data);
 	}
 	public function insert_product(){
@@ -31,7 +39,7 @@ class Product extends CI_Controller{
 		}else{
 
 		$image = $this->ProductModel->add_product_model($product_image);
-	$this->session->set_flashdata("flsh_msg","<font class='success'>Product Added Successfully</font>");
+	$this->session->set_flashdata("flash_msg","<font class='success'>Product Added Successfully</font>");
 		redirect('product-list');
 		}
 	}
@@ -40,6 +48,7 @@ class Product extends CI_Controller{
 		$data['all_cat'] = $this->ProductModel->get_all_category();
 		$data['all_sub_cat'] = $this->ProductModel->get_all_sub_category();
 		$data['all_brand'] = $this->ProductModel->get_all_brand();
+		$data['stores'] = $this->StoreModel->get_all_store();
 		$data['main_content'] = $this->load->view('back/edit_product',$data,true);
 		$this->load->view('back/adminpanel',$data);
 		
@@ -47,18 +56,36 @@ class Product extends CI_Controller{
 	private function upload_product_image(){
 		$config['upload_path']          = './uploads/';
         $config['allowed_types']        = 'png|gif|jpg|jpeg';
-        $config['max_size']             = 1000;//kb
-        $config['max_width']            = 1024;
-        $config['max_height']           = 768;
+        $config['max_size']             = 10240;//kb
+       // $config['max_width']            = 1024;
+       // $config['max_height']           = 768;
         $this->load->library('upload', $config);
         if($this->upload->do_upload('pro_image')){
         	$data = $this->upload->data();
         	$image_path = "uploads/$data[file_name]";
+			
+			
+			$config['image_library'] = 'gd2';
+			$config['create_thumb'] = FALSE;  
+			$config['maintain_ratio'] = TRUE;  
+			$config['quality'] = '60%';  
+			$config['source_image'] = $image_path;
+			//$config['width'] = 300;
+			//$config['height'] = 300;
+			$config['new_image'] = $image_path;  
+
+			//$this->load->library('image_lib', $config);  
+                    // $this->image_lib->resize();  
+		
+		
         	return $image_path;
         }else{
         	  $error =  $this->upload->display_errors();
         	$this->session->set_userdata('error_image',$error);
         	//redirect("Product/add_product_form");
+
+			//store the file info
+			
         }
 
 	}
@@ -90,6 +117,11 @@ class Product extends CI_Controller{
 		$this->ProductModel->delete_product_model($product_id);
 		$this->session->set_flashdata('product_delete','Product Deleted Successfully');
 		redirect('product-list');
+	}
+
+	public function resizeImage($target,$w, $h){
+		$wmax = 1024;
+        $hmax = 768;
 	}
 	
 	

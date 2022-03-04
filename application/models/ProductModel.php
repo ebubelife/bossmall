@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ProductModel extends CI_Model {
-
+	
 	
 	public function add_product_model($product_image){
 		$data['pro_title'] = $this->input->post('pro_title',true);
@@ -16,15 +16,28 @@ class ProductModel extends CI_Model {
 		$data['pro_status'] = $this->input->post('pro_status',true);
 		$data['pro_image'] = $product_image;
 		$data['top_product'] = $this->input->post('top_product',true);
+		$data['store_id'] = $this->input->post('store_name',true);
 
 		
 		$this->db->insert('tbl_product',$data);	
 	}
+
+	
 	public function get_all_product_limit(){
 		$data = $this->db->select('*')
 			->from('tbl_product')
 			->order_by('pro_id','desc')
-			->limit("6")
+			->limit("10")
+			->get()
+			->result();
+			return $data;
+	}
+
+	public function get_all_products_store($store_id){
+		$data = $this->db->select('*')
+			->from('tbl_product')
+			->where('store_id',$store_id)
+			->order_by('pro_id','desc')
 			->get()
 			->result();
 			return $data;
@@ -93,6 +106,7 @@ class ProductModel extends CI_Model {
 		$data['pro_status'] = $this->input->post('pro_status',true);
 		$data['pro_image'] = $product_image;
 		$data['top_product'] = $this->input->post('top_product',true);
+		$data['store_id'] = $this->input->post('store_name',true);
 		$this->db->where('pro_id',$product_id);
 		$this->db->update('tbl_product',$data);
 		

@@ -21,16 +21,21 @@
 					}
 			?>
 			
-				<div class="col-sm-6">
-					<h1><img src="<?php echo base_url()?>assets/front/images/home/THIRD_LOGO_50X50.png" alt="" /><span style="color:#1c5979">Boss</span><span style="color:#ea4a50">Mall</span></h1>
-					<h2><?php echo $slider->pro_title;?></h2>
+			<!--	<div class="col-sm-6">
+					<h1><img src="<?php// echo base_url()?>assets/front/images/home/THIRD_LOGO_50X50.png" alt="" /><span style="color:#1c5979">Boss</span><span style="color:#ea4a50">Mall</span></h1>
+					<h2><?php// echo $slider->pro_title;?></h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 					<button type="button" class="btn btn-default get">Get it now</button>
+				</div>-->
+				<div class="col-sm-12">
+					<img src="<?php echo base_url('assets/front/images/home/honey_ad.jpg')?>" class="girl img-responsive" alt="" />
+					
 				</div>
-				<div class="col-sm-6">
-					<img src="<?php echo base_url().$slider->pro_image;?>" class="girl img-responsive" alt="" />
-					<img src="images/home/pricing.png"  class="pricing" alt="" />
-				</div>
+			<!--	<div class="col-sm-12">
+				<img src="<?php echo base_url()?>/assets/front/images/home/banners/comp.png_rJicC7n0t.png" class="girl img-responsive" alt="" />
+				</div>-->
+
+
 			</div>
 			<?php $i++; } ?>
 

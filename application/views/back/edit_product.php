@@ -28,6 +28,22 @@
                         <div class="col-lg-12">
                            <h5 style='color:red'> <?php echo validation_errors();?></h5>
                              <?php echo form_open_multipart('update-product','');?>
+                            
+                             <?php if($stores) { ?>
+                             <div class="form-group">
+                                    <label>Select Store</label>
+                                    <select class="form-control" name="store_name" required>
+                                        <option>Select One</option>
+                                        <?php foreach($stores as $store){?>
+                                        <option value="<?php echo $store->id ?>" <?php if($store->id==$all_product->store_id){?>
+                                                selected="selected";
+                                                <?php }?>><?php echo $store->store_name; ?></option>
+                                        <?php }?>
+                                       
+                                      
+                                    </select>
+                            </div>
+                            <?php }?>       
                                 <div class="form-group">
                                     <label>Add Product Title</label>
                                     <input type="text" class="form-control" value="<?php echo $all_product->pro_title?>" name="pro_title" required="">

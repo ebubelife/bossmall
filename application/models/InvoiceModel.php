@@ -11,6 +11,20 @@ class InvoiceModel extends CI_Model {
 						->result();
 						return $data;
 	}
+
+	public function get_orders_store($store_id){
+		$data = $this->db->select('*')
+						->from('tbl_order')
+						//->join('tbl_customer', 'tbl_customer.cus_id = tbl_order.cus_id')
+						//->join('tbl_payment', 'tbl_payment.payment_id = tbl_order.payment_id')
+						->where('store_id',$store_id)
+						->get()
+						->result();
+						return $data;
+	}
+
+
+
 	public function get_order_info_by_id($order_id){
 		$data = $this->db->select('*')
 						->from('tbl_order')

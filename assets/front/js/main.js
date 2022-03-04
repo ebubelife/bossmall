@@ -1,5 +1,32 @@
 
 
+$(document).ready(function(){
+
+	$("#account-menu-trigger").click(function(){
+
+		$(".account-sub-menu").toggle();
+		
+		});
+
+		$(".categories-trigger-1").click(function(){
+
+			$(".menu-overlay-1").toggle();
+			
+			});
+		
+
+$(".carousel-inner-img img").click(function(){
+
+	let img_src = $(this).attr("src");
+
+	$(".view-product-img").attr("src",img_src);
+	
+
+});
+
+});
+
+		
 
 /*price range*/
 

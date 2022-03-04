@@ -54,6 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'home';
 $route['products'] = 'Home/productpage';
 $route['product-details/(.+)'] = 'Home/product_details/$1';
+$route['store-details/(.+)'] = 'Home/store_details/$1';
 $route['show-post-by-brand-id/(.+)'] = 'Home/show_post_by_brand_id/$1';
 $route['show-post-by-sub-cat-id/(.+)'] = 'Home/show_post_by_sub_cat_id/$1';
 $route['show-product-by-price-range'] = 'Home/show_product_by_price_range';
@@ -97,6 +98,12 @@ $route['save-product'] = 'Product/insert_product';
 $route['edit-product/(.+)'] = 'Product/edit_product/$1';
 $route['update-product'] = 'Product/update_product';
 $route['delete-product/(.+)'] = 'Product/delete_product/$1';
+
+/*Merchant & store*/
+$route['add-merchant'] = 'Merchant/add_merchant_form';
+$route['merchant-list'] = 'Merchant/show_merchant_list';
+$route['new-store'] = 'Store/add_store_form';
+$route['store-list'] = 'Store/show_store_list';
 
 // Cart Class
 $route['add-to-cart'] = 'Cart/add_to_cart';

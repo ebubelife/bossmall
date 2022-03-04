@@ -13,6 +13,8 @@
 	<link href="<?php echo base_url()?>assets/front/css/price-range.css?<?php echo time() ?>" rel="stylesheet">
 	<link href="<?php echo base_url()?>assets/front/css/animate.css?<?php echo time() ?>" rel="stylesheet">
 	<link href="<?php echo base_url()?>assets/front/css/main.css?<?php echo time() ?>" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.1/css/all.css" rel="stylesheet">
+
 	<link href="<?php echo base_url()?>assets/front/css/responsive.css?<?php echo time() ?>" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="<?php echo base_url()?>assets/front/js/html5shiv.js"></script>
@@ -23,6 +25,9 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo base_url()?>assets/front/images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo base_url()?>assets/front/images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="<?php echo base_url()?>assets/front/images/ico/apple-touch-icon-57-precomposed.png">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> 
 </head><!--/head-->
 
 <body>
@@ -304,6 +309,7 @@
 		</div>
 		
 	</footer><!--/Footer-->
+
 	<script src="<?php echo base_url()?>assets/front/js/jquery.js?<?php echo time() ?>"></script>
 	<script src="<?php echo base_url()?>assets/front/js/bootstrap.min.js?<?php echo time() ?>"></script>
 	<script src="<?php echo base_url()?>assets/front/js/jquery.scrollUp.min.js?<?php echo time() ?>"></script>

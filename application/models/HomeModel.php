@@ -20,6 +20,15 @@ class HomeModel extends CI_Model {
 	    $query = $this->db->get();
 	    return $query->row();
 	}
+
+	public function get_store_by_id($store_id){
+		$this->db->select('*');
+	    $this->db->from('tbl_stores');
+		 $this->db->where('id',$store_id);
+	   // $this->db->join('tbl_brand', 'tbl_product.pro_brand = tbl_brand.brand_id', 'right outer'); 
+	    $query = $this->db->get();
+	    return $query->row();
+	}
 	public function get_total_product_by_brand($brand_id){
 		$data = $this->db->select('count(pro_brand) as total')
 			->from('tbl_product')

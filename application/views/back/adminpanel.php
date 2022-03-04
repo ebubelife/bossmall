@@ -8,19 +8,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootsrtap Free Admin Template - SIMINTA | Admin Dashboad Template</title>
+    <title>BossMall Admin Panel</title>
     <!-- Core CSS - Include with every page -->
-    <script src="<?php echo base_url()?>assets/back/plugins/jquery-1.10.2.js"></script>
-    <link href="<?php echo base_url()?>assets/back/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
-    <link href="<?php echo base_url()?>assets/back/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link href="<?php echo base_url()?>assets/back/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="<?php echo base_url()?>assets/back/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
-    <link href="<?php echo base_url()?>assets/back/css/style.css" rel="stylesheet" />
-    <link href="<?php echo base_url()?>assets/back/css/main-style.css" rel="stylesheet" />
+    <script src="<?php echo base_url()?>assets/back/plugins/jquery-1.10.2.js?<?php echo time()?>"></script>
+    <link href="<?php echo base_url()?>assets/back/plugins/bootstrap/bootstrap.css?<?php echo time()?>" rel="stylesheet" />
+    <link href="<?php echo base_url()?>assets/back/font-awesome/css/font-awesome.css?<?php echo time()?>" rel="stylesheet" />
+    <link href="<?php echo base_url()?>assets/back/css/font-awesome.min.css?<?php echo time()?>" rel="stylesheet" />
+    <link href="<?php echo base_url()?>assets/back/plugins/pace/pace-theme-big-counter.css?<?php echo time()?>" rel="stylesheet" />
+    <link href="<?php echo base_url()?>assets/back/css/style.css?<?php echo time()?>" rel="stylesheet" />
+    <link href="<?php echo base_url()?>assets/back/css/main-style.css?<?php echo time()?>" rel="stylesheet" />
     <!-- Page-Level CSS -->
-    <link href="<?php echo base_url()?>assets/back/plugins/morris/morris-0.4.3.min.css" rel="stylesheet" />
-    <link href="<?php echo base_url()?>assets/back/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
-     <link href="<?php echo base_url()?>assets/back/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
+    <link href="<?php echo base_url()?>assets/back/plugins/morris/morris-0.4.3.min.css?<?php echo time()?>" rel="stylesheet" />
+    <link href="<?php echo base_url()?>assets/back/plugins/dataTables/dataTables.bootstrap.css?<?php echo time()?>" rel="stylesheet" />
+     <link href="<?php echo base_url()?>assets/back/plugins/pace/pace-theme-big-counter.css?<?php echo time()?>" rel="stylesheet" />
 
    </head>
 <body>
@@ -37,7 +37,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="index.html">
-                    <h1><strong>Admin Panel</strong></h1>
+                    <h1 style="color:#ffffff"><strong>BossMall Admin</strong></h1>
                 </a>
             </div>
             <!-- end navbar-header -->
@@ -335,6 +335,24 @@
                     </li>
 
                     <li>
+                        <a href="#"><i class="fa fa-shopping-cart fa-fw"></i> Merchants<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                 <a href="<?php echo base_url();?>add-merchant"><i class=""></i>Add Merchant</a>
+                             </li>
+                            <li>
+                                 <a href="<?php echo base_url();?>merchant-list"><i class=""></i>View Merchants</a>
+                            </li>
+                            <li>
+                                 <a href="<?php echo base_url();?>new-store"><i class=""></i>Create Store</a>
+                            </li>
+                            <li>
+                                 <a href="<?php echo base_url();?>store-list"><i class=""></i>View Stores</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Brand Option<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
@@ -362,16 +380,16 @@
 
     <!-- Core Scripts - Include with every page -->
   
-    <script src="<?php echo base_url()?>assets/back/plugins/bootstrap/bootstrap.min.js"></script>
-    <script src="<?php echo base_url()?>assets/back/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="<?php echo base_url()?>assets/back/plugins/pace/pace.js"></script>
-    <script src="<?php echo base_url()?>assets/back/scripts/siminta.js"></script>
+    <script src="<?php echo base_url()?>assets/back/plugins/bootstrap/bootstrap.min.js?<?php echo time()?>"></script>
+    <script src="<?php echo base_url()?>assets/back/plugins/metisMenu/jquery.metisMenu.js?<?php echo time()?>"></script>
+    <script src="<?php echo base_url()?>assets/back/plugins/pace/pace.js?<?php echo time()?>"></script>
+    <script src="<?php echo base_url()?>assets/back/scripts/siminta.js?<?php echo time()?>"></script>
     <!-- Page-Level Plugin Scripts-->
-    <script src="<?php echo base_url()?>assets/back/plugins/morris/raphael-2.1.0.min.js"></script>
-    <script src="<?php echo base_url()?>assets/back/plugins/morris/morris.js"></script>
-    <script src="<?php echo base_url()?>assets/back/scripts/dashboard-demo.js"></script>
+    <script src="<?php echo base_url()?>assets/back/plugins/morris/raphael-2.1.0.min.js?<?php echo time()?>"></script>
+    <script src="<?php echo base_url()?>assets/back/plugins/morris/morris.js?<?php echo time()?>"></script>
+    <script src="<?php echo base_url()?>assets/back/scripts/dashboard-demo.js?<?php echo time()?>"></script>
     <!--Code for data table-->
-   <script src="<?php echo base_url()?>assets/back/plugins/dataTables/dataTables.bootstrap.js"></script>
+   <script src="<?php echo base_url()?>assets/back/plugins/dataTables/dataTables.bootstrap.js?<?php echo time()?>"></script>
 
 </body>
 </html>

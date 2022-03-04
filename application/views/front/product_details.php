@@ -1,7 +1,8 @@
+
 <div class="product-details"><!--product-details-->
 	<div class="col-sm-5">
 		<div class="view-product">
-			<img src="<?php echo base_url().$product_info->pro_image?>" alt="" />
+			<img src="<?php echo base_url().$product_info->pro_image?>" alt="" class="view-product-img" />
 			<h3>ZOOM</h3>
 		</div>
 		<div id="similar-product" class="carousel slide" data-ride="carousel">
@@ -9,19 +10,19 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
 				<div class="item active">
-					<a href=""><img src="<?php echo base_url()?>assets/front/images/product-details/similar1.jpg" alt=""></a>
-					<a href=""><img src="<?php echo base_url()?>assets/front/images/product-details/similar2.jpg" alt=""></a>
-					<a href=""><img src="<?php echo base_url()?>assets/front/images/product-details/similar3.jpg" alt=""></a>
+					<a   class="carousel-inner-img" ><img src="<?php echo base_url()?>assets/front/images/home/shipping.jpg" alt=""  style="cursor:pointer" ></a>
+					<a  class="carousel-inner-img"><img src="<?php echo base_url()?>assets/front/images/product-details/3.jpg" alt="" style="cursor:pointer"></a>
+					<a  class="carousel-inner-img"><img src="<?php echo base_url()?>assets/front/images/product-details/4.jpg" alt="" style="cursor:pointer"></a>
 				</div>
 				<div class="item">
-					<a href=""><img src="<?php echo base_url()?>assets/front/images/product-details/similar1.jpg" alt=""></a>
-					<a href=""><img src="<?php echo base_url()?>assets/front/images/product-details/similar2.jpg" alt=""></a>
-					<a href=""><img src="<?php echo base_url()?>assets/front/images/product-details/similar3.jpg" alt=""></a>
+				<a  class="carousel-inner-img" ><img src="<?php echo base_url()?>assets/front/images/home/shipping.jpg" alt="" style="cursor:pointer" ></a>
+					<a  class="carousel-inner-img"><img src="<?php echo base_url()?>assets/front/images/product-details/3.jpg" alt="" style="cursor:pointer"></a>
+					<a  class="carousel-inner-img"><img src="<?php echo base_url()?>assets/front/images/product-details/4.jpg" alt="" style="cursor:pointer" ></a>
 				</div>
 				<div class="item">
-					<a href=""><img src="<?php echo base_url()?>assets/front/images/product-details/similar1.jpg" alt=""></a>
-					<a href=""><img src="<?php echo base_url()?>assets/front/images/product-details/similar2.jpg" alt=""></a>
-					<a href=""><img src="<?php echo base_url()?>assets/front/images/product-details/similar3.jpg" alt=""></a>
+				<a   class="carousel-inner-img" ><img src="<?php echo base_url()?>assets/front/images/home/shipping.jpg" alt=""  style="cursor:pointer"></a>
+					<a  class="carousel-inner-img"><img src="<?php echo base_url()?>assets/front/images/product-details/3.jpg" alt="" style="cursor:pointer"></a>
+					<a  class="carousel-inner-img"><img src="<?php echo base_url()?>assets/front/images/product-details/4.jpg" alt="" style="cursor:pointer"></a>
 				</div>
 
 			</div>
@@ -39,7 +40,7 @@
 	<div class="col-sm-7">
 		<div class="product-information"><!--/product-information-->
 			<h2><?php echo $product_info->pro_title?></h2>
-			<p>Web ID: <?php echo $product_info->pro_id?></p>
+			<p> <?php echo $product_info->pro_id?></p>
 			<!-- <img src="<?php echo base_url()?>assets/front/images/product-details/rating.png" alt="" /> -->
 			<span>
 				<form action="<?php echo base_url()?>add-to-cart"  method="post">
@@ -70,3 +71,5 @@
 		</div><!--/product-information-->
 	</div>
 </div>
+
+
