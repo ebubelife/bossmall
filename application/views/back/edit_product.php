@@ -147,7 +147,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Upload Product Image</label>
-                                    <input type="file" name="pro_image">
+                                    <input type="file" name="pro_image" multiple="multiple" accept="image/*">
                                     <input type="hidden" name="old_pro_image" value="<?php echo $all_product->pro_image?>">
                                     <img src="<?php echo base_url().$all_product->pro_image?>" width="80" height="50"/>
 

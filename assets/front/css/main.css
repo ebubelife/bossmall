@@ -7,11 +7,15 @@
 @import url(http://fonts.googleapis.com/css?family=Abel);
 
 body {
-  font-family: 'Roboto', sans-serif;
+      font-family: 'Montserrat', sans-serif;
+
+  font-family: 'Pacifico', verdana;
   background:0;
   position: relative;
-  font-weight:400px;
+  font-weight:200px;
   background-color: #fcfdfd;
+  overflow-x:hidden;
+
 }
 
 .main-container-fluid{
@@ -41,6 +45,7 @@ a {
   -moz-transition: 300ms;
     -o-transition: 300ms;
     transition: 300ms;
+    font-weight:300;
 }
 
 .account-sub-menu{
@@ -96,7 +101,7 @@ a#scrollUp i{
 **************************/
 
 .header_top {
-  background: none repeat scroll 0 0 #F0F0E9;
+  background: none repeat scroll 0 0 #990000; 
 }
 
 .contactinfo ul li:first-child{
@@ -105,7 +110,7 @@ a#scrollUp i{
 
 .contactinfo ul li a{
   font-size: 12px;
-  color: #696763;
+  color: #ffffff;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -118,7 +123,7 @@ a#scrollUp i{
 .social-icons ul li a {
   border: 0 none;
   border-radius: 0;
-  color: #696763;
+  color: #ffffff;
   padding:0px;
 }
 
@@ -523,6 +528,8 @@ ul.sub-menu {
 	margin-right:15px;
 }
 
+.single-offer:hover{box-shadow:rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;}
+
 .single-widget ul li a{
 	color: #8C8C88;
 	font-family: 'Roboto', sans-serif;
@@ -732,16 +739,23 @@ ul.sub-menu {
 	margin-left: -65px;
 }
 
+.section-title{background-color: rgba(99, 194, 223, 0.3);padding:10px;color:#000000 !important;font-weight:400 !important;}
+
+.io-section{background-color: rgba(0, 0, 0, 0.8);padding:10px;color:#ffffff !important;font-weight:400 !important;}
+
+.single-offer:hover{}
+
 h2.title:before{
 	content: " ";
 	position: absolute;
-	background: #fff;
+	background: rgb(255, 255, 255);
 	bottom: -6px;
 	width: 220px;
 	height: 30px;
 	z-index: -1;
 	left: 50%;
 	margin-left: -110px;
+ 
 }
 
 .category-products .panel {
@@ -854,6 +868,8 @@ h2.title:before{
   text-decoration: none;
 }
 
+
+
 .tooltip.top .tooltip-arrow {
   border-top-color: #FE980F;
   border-width: 5px 5px 0;
@@ -888,7 +904,7 @@ h2.title {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
   border-radius:6px;
 	overflow: hidden;
-	margin-bottom:30px;height:340px;
+	margin-bottom:30px;height:350px;
 }
 .product-image-wrapper:hover{
   box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
@@ -912,8 +928,8 @@ h2.title {
 .productinfo h2{
 	color: rgb(153, 0, 0);
 	font-family: 'Roboto', sans-serif;
-	font-size: 24px;
-	font-weight: 700;
+	font-size: 13px;
+	font-weight: 600;
 }
 .product-overlay h2{
 	color: #fff;
@@ -931,7 +947,7 @@ h2.title {
 }
 
 .productinfo img{
-  max-width: 55%; max-height:140px; 
+  max-width: 55%; max-height:130px; 
 }
 
 .productinfo{
@@ -1167,22 +1183,36 @@ h2.title {
 **************************/
 
 
-#advertisement {
-  
+#advertisement img {
+height:250px; width:100px;
 }
 
-.top-store-banner{}
+.top-store-banner{min-height:250px; width:100%; }
 
-.header-overlay{height:100%;padding-top:30px; padding-bottom:30px; width:100%;  background-color: rgba(12, 12, 12, 0.8);}
+
+
+/*.top-store-banner:hover .header-overlay{display:inline-block;background-color: rgba(51, 50, 50, 0.8); cursor:pointer}*/
+
+.header-overlay{height:100%;padding-top:30px; padding-bottom:30px; width:100%;  }
 
 .overlay-inner h1{color:#ffffff; font-family:Verdana, Geneva, Tahoma, sans-serif}
 
 .overlay-inner{text-align:center}
 
-
+@media only screen and (max-width: 600px) {
+  .top-store-banner{min-height:100px; width:100%; }
+}
 
 #advertisement img {
   width: 100%;
+}
+
+
+
+@media only screen and (min-width: 601px) {
+  .slider-section{
+    right:4%;
+  }
 }
 
 .pagination {
@@ -2662,4 +2692,101 @@ button [type="submit"]{
 
 
 }
+
+.important-offer-single{height:300px;}
+
+.single-f-l-banner{height:90px;}
+ .single-f-l-banner-img{width:100%; height:100%;}
+ 
+ .mobile-f-slider{display:none;}
+
+ @media only screen and (min-width: 1500px) {
+     
+     #section-1{padding-left:300px; padding-right:300px}
+     
+ }
+
+
+@media only screen and (min-width: 679px) {
+#slider{padding-left:300px; padding-right:300px}
+
+
+    
+.menu-slide{display:none;}
+
+.header-bottom{display:none !important;}        
+.top-stores{display:none !important;}
+.mobile-slider{display:none;}
+ 
+.categories-list{width:200px !important; padding-top:8px; position:absolute;  background-color:#ffffff; z-index:1000; box-shadow: 1px 1px 2px 1px rgba(128, 126, 126, 0.2); border-radius:5px; }
+
+.left-side-cat{ padding:10px;display:inline-block;}
+.sub-cat{border-left:1px solid rgba(63, 62, 62, 0.3);display:none;vertical-align: top;height:350px; }
+.left-side-cat li {width:100%;  margin-top:12px; text-align: justify;}
+.left-side-cat li a {color:#000000; font-size:13px;}
+
+.left-side-cat-a:hover{cursor:pointer;}
+
+.add-width{width:400px !important;}
+
+.display{display:inline-block;}
+
+.left-side-sub-cat-li{display:none;}
+
+.shipping{position:absolute;  z-index:1100;margin-top:180%;width:230px;box-shadow: 1px 1px 4px 1px rgba(128, 126, 126, 0.3);border-radius:5px;}
+
+}
+
+@media only screen and (max-width: 678px) {
+    .slider-section{display:none;}
+     .main-slider{display:none;}
+ .mobile-f-slider{display:block;}
+  .categories-list ul{display:none}
+
+.single-f-l-banner{height:50px;}
+
+  .col-social-icons{display:none !important;}
+  .col-main-menu{display:none;}
+
+  .col-single-fp{width:48%;display:inline-block;padding:3px; }
+
+  .single-offer{width:48%; height:100px;display:inline-block;padding:3px;}
+  
+ 
+  .single-offer .product-image-wrapper{height:140px;}
+
+
+.img-side-bar {display:none} .slider-section{display:none;} .mobile-single-slider .product-image-wrapper {height:140px !important;  }
+
+.mobile-single-slider{display:inline-block;width:80%; }
+.scrollable-en{overflow-x: scroll;white-space: nowrap;
+  overflow-y: hidden; height:170px;padding-bottom:30px;
+  scrollbar-width:none; -ms-overflow-style:none;
+}
+
+.scrollable-en::-webkit-scrollbar{
+  width:0; height:0;
+}
+
+
+.menu-slide{width:0%; height:100%; overflow-y:hidden;white-space: nowrap; border-right:1px solid rgb(211, 209, 209); background-color:rgb(253, 252, 252); position:absolute; z-index:2000}
+
+.menu-open{width:80%;}
+
+}
+
+.mobile-menu-items{
+  position: relative; margin-top:15px;
+}
+
+.mobile-menu-items a{
+  font-size:20px;  color:#000000;font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Arial,sans-serif;
+}
+
+.menu-header{}
+
+.mobile-menu{padding:0; }
+
+.menu-header{font-size:20px; color:#af3939;}
+
 

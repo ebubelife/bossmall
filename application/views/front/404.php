@@ -27,7 +27,7 @@
 <body>
 	<div class="container text-center">
 		<div class="logo-404">
-			<a href="index.html"><img src="<?php echo base_url()?>assets/front/images/home/logo.png" alt="" /></a>
+			<!--<a href="index.html"><img src="<?php //echo base_url()?>assets/front/images/home/logo.png" alt="" /></a>-->
 		</div>
 		<div class="content-404">
 			<img src="<?php echo base_url()?>assets/front/images/404/404.png" class="img-responsive" alt="" />

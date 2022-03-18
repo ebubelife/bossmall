@@ -21,9 +21,28 @@ class CategoryModel extends CI_Model {
 			->result();
 			return $data;
 	}
+
+	public function get_cat_sub(){
+		$data = $this->db->select('*')
+			->from('tbl_category')
+			->order_by('category_id','desc')
+			->get()
+			->result();
+			return $data;
+	}
 	public function get_all_sub_category(){
 		$data = $this->db->select('*')
 			->from('tbl_sub_category')
+			->order_by('sub_cat_id','desc')
+			->get()
+			->result();
+			return $data;
+	}
+
+	public function get_sub_category_cat($cat_id){
+		$data = $this->db->select('*')
+			->from('tbl_sub_category')
+			->where('category_sub_id', $cat_id)
 			->order_by('sub_cat_id','desc')
 			->get()
 			->result();

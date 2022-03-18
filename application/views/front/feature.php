@@ -1,9 +1,9 @@
 <div class="features_items"><!--features_items-->
-	<h2 class="title text-center"><?php echo $section_title_one?></h2>
-	<?php $allproduct = $this->ProductModel->get_all_product_limit();?>
+	<h2 class="title text-center section-title"><?php echo $section_title_one?></h2>
+	<?php $allproduct = $this->ProductModel->get_all_products_filter(8);?>
 	<?php foreach ($allproduct as $product) {?>
 	<?php if($product->pro_status==1){?>
-	<div class="col-sm-3">
+	<div class="col-sm-3 col-single-fp">
 		<div class="product-image-wrapper">
 			<div class="single-products">
 				<div class="productinfo text-center">
@@ -31,6 +31,7 @@
 			</div>
 			<div class="choose">
 				<br>
+				
 			<p class="text-center"><a href="<?php base_url()?>store-details/<?php echo $product->store_id?>" style="color:#1c5979"><i class="fa fa-shopping-basket"></i>  <?php $getStore = $this->HomeModel->get_store_by_id($product->store_id); echo $getStore->store_name?></a></p>
 			<p class="text-center"><a href="<?php base_url()?>store-details/<?php echo $product->pro_id?>" style="color:#1c5979"><i class="fa fa-map-marker"></i> Awka, Anambra</p>
 				

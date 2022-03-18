@@ -2,6 +2,57 @@
 
 $(document).ready(function(){
 
+	var mobile_slider = document.getElementById("scrollable-en");
+	 for(var i=0;i<2;i++){
+
+		setTimeout(function(){
+			mobile_slider.scrollBy(100, 0);
+	//	mobile_slider.style.visibility = "hidden";
+	//	$(".mobile-slider").hide();
+		}, 1000);
+	 }
+
+
+	var menu_open = false;
+	$(".navbar-toggle").click(function(){
+
+		if(menu_open==false){
+			$(".menu-slide").addClass("menu-open");
+			menu_open = true;
+		}
+		else{
+			$(".menu-slide").removeClass("menu-open");
+			menu_open = false;
+		}
+	
+
+	});
+
+	$(".left-side-cat-a").hover(function(){
+
+		$(".categories-list").addClass("add-width");
+             
+		let id = $(this).attr("id");
+	     $(".sub-cat").css("display","none");
+
+		$("."+id).css("display","inline-block");
+
+});
+
+$(".categories-list").mouseleave(function(){
+
+	$(this).removeClass("add-width");
+		 
+	
+	 $(".sub-cat").css("display","none");
+
+	
+
+});
+
+
+
+
 	$("#account-menu-trigger").click(function(){
 
 		$(".account-sub-menu").toggle();
@@ -60,3 +111,10 @@ $(document).ready(function(){
 		});
 	});
 });
+
+
+
+
+
+
+

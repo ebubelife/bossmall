@@ -12,45 +12,67 @@ class Merchant extends CI_Controller{
 		}
 		$data = array();
 		$this->load->model("ProductModel");
+		$this->load->model("MerchantModel");
+		$this->load->library("banks");
+		$this->load->helper('cookie');
 	}
 	public function add_merchant_form(){
 
-		 $banks = array(
-			"Access Bank Plc",
-			"Citibank Nigeria",
-			"Coronation Merchant Bank",
-			"Ecobank Nigeria Plc",
-			"FBNQuest Merchant Bank",
-			"Fidelity Bank Plc",
-			"First Bank of Nigeria",
-			"First City Monument Bank",
-			"FSDH Merchant Bank",
-			"Globus Bank",
-			"Guaranty Trust Bank Plc",
-			"Heritage Banking Company ",
-			"Jaiz Bank Plc",
-			"Keystone Bank",
-			"Nova Merchant Bank",
-			"Polaris Bank",
-			"Providus Bank",
-			"Rand Merchant Bank",
-			"Stanbic IBTC Bank Plc",
-			"Standard Chartered",
-			"Sterling Bank Plc",
-			"SunTrust Bank Nigeria ",
-			"TAJBank",
-			"Titan Trust Bank",
-			"Union Bank of Nigeria Plc",
-			"United Bank for Africa Plc",
-			"Unity Bank Plc",
-			"Wema Bank Plc",
-			"Zenith Bank Plc",
-		 );
-		$data['all_cat'] = $this->ProductModel->get_all_category();
+	
+		$banks = $this->banks->return_banks();
 		$data["banks"]= $banks;
-		$data['all_sub_cat'] = $this->ProductModel->get_all_sub_category();
+
+		//echo json_encode($banks);
+	//	$data['all_sub_cat'] = $this->ProductModel->get_all_sub_category();
 		$data['main_content'] = $this->load->view('back/add_merchant',$data,true);
 		$this->load->view('back/adminpanel',$data);
+	}
+
+	public function merchant_list(){
+
+	  
+		$data['all_merchants'] = $this->MerchantModel->get_all_merchants();
+		$data['main_content'] = $this->load->view('back/merchant_list',$data,true);
+		$this->load->view('back/adminpanel',$data);
+
+	}
+
+	public function add_merchant(){
+
+		
+		$new_store = $this->MerchantModel->add_merchant_model();
+
+		if($new_store){
+		$this->session->set_flashdata("flash_msg","<font class='success'>Store Added Successfully</font>");
+		redirect('merchant-list');
+		}else{
+			$this->session->set_flashdata("flash_msg","<font class='error'>An error occured</font>");
+			redirect("add-merchant");
+		}
+	}
+
+	public function search_user_string(){
+
+		$search_string = json_decode($_POST["p_data"]);
+
+	    $check_user = $this->MerchantModel->search_merchant_model($search_string);
+
+		//echo "ggg";
+		echo json_encode($check_user);
+
+	}
+
+	public function add_cookie_id(){
+
+		$id = json_decode($_POST["p_data"]);
+
+	
+	
+	
+		$this->session->set_userdata("selected_merchant_id",$id);
+		
+		echo $this->session->userdata('selected_merchant_id');
+
 	}
 	
 	

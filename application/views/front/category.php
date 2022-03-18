@@ -1,4 +1,4 @@
-<div class="col-sm-3">
+<div class="col-sm-2">
 	<div class="left-sidebar">
 	
 
@@ -41,11 +41,43 @@
 
 
 
-		<div class="shipping text-center"><!--shipping-->
-			<img src="<?php echo base_url()?>assets/front/images/home/shipping.jpg" alt="" />
-		</div><!--/shipping-->
+		<div class="categories-list text-left"><!--shipping-->
 
-		<div class="shipping text-center"><!--shipping-->
+		<ul class="left-side-cat cat">
+
+		<?php $categories = $this->CategoryModel->get_all_category();
+		          foreach($categories as $category){
+		?>
+			<li class="left-side-cat-li"><a class="left-side-cat-a" href="#" id="<?php echo "c-".$category->category_id ?>"><?php echo $category->category_name ?></a></li>
+
+			
+<?php } ?>
+                </ul>
+
+			
+				<?php $categories = $this->CategoryModel->get_all_category();
+		          foreach($categories as $category){
+		?>
+		
+			<ul class="left-side-cat sub-cat <?php echo "c-".$category->category_id ?>" id="<?php echo "c-".$category->category_id ?>" style=" width:50%;" >
+
+			<?php $sub_categories = $this->CategoryModel->get_sub_category_cat($category->category_id);
+		          foreach($sub_categories as $sub_category){
+		?>
+
+	<li><a class="left-side-sub-cat-a" href="#"><?php echo $sub_category->sub_category_name ?></a></li>
+
+	<?php } ?>
+
+		</ul>
+
+		<?php } ?>
+           
+		
+		
+		</div><!--/categories-list-->
+
+		<div class="shipping img-side-bar text-center"><!--shipping-->
 			<img src="<?php echo base_url()?>assets/front/images/home/shipping.jpg" alt="" />
 		</div><!--/shipping-->
 
@@ -53,3 +85,6 @@
 		
 	</div>
 </div>
+
+
+

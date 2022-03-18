@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootsrtap Free Admin Template - SIMINTA | Admin Dashboad Template</title>
+  <title>BossMall Admin Template</title>
   <!-- Core CSS - Include with every page -->
   <link href="<?php echo base_url()?>assets/back/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
   <link href="<?php echo base_url()?>assets/back/font-awesome/css/font-awesome.css" rel="stylesheet" />
@@ -21,7 +21,7 @@
 
         <div class="row">
             <div class="col-md-4 col-md-offset-4 text-center logo-margin ">
-              <img src="<?php echo base_url()?>assets/back/img/logo.png" alt=""/>
+              <img src="<?php echo base_url()?>assets/front/images/home/FIRST_LOGO.png" alt=""/>
           </div>
           <div class="col-md-4 col-md-offset-4">
             <div class="login-panel panel panel-default">                  

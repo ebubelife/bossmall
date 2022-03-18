@@ -12,7 +12,7 @@
             <!-- Advanced Tables -->
             <div class="panel panel-default">
                 <div class="panel-heading">
-                     Product Tables
+                    All Products
                 </div>
                 <p class="text-success"> <?php if(isset($success_message)){
                   echo $success_message;
@@ -34,6 +34,7 @@
                                     <th>Product Status</th>
                                     <th>Product Availability</th>
                                     <th>Product Price</th>
+                                    <th>Store Name</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -67,9 +68,13 @@
                                        }?>
                                     </td>
                                     <td><?php echo $value->pro_price;?></td>
+                                    <td><?php $getStore = $this->StoreModel->get_single_store($value->store_id);
+                                    $getStore = $getStore->store_name;
+                                    
+                                   ?><a href=""><?php echo $getStore ?></a></td>
                                    <td>
-                                        <a class="btn btn-info" href="<?php echo base_url()?>edit-product/<?php echo $value->pro_id?>">Edit</a>
-                                        <a class="btn btn-danger" href="<?php echo base_url()?>delete-product/<?php echo $value->pro_id?>">Delete</a>
+                                        <a class="btn btn-info" href="<?php echo base_url()?>edit-product/<?php echo $value->pro_id?>"><i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-danger" href="<?php echo base_url()?>delete-product/<?php echo $value->pro_id?>"><i class="fa fa-exclamation-triangle"></i></a>
                                     </td> 
                                     
                                 </tr>

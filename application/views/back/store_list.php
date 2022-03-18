@@ -74,18 +74,29 @@
                                                 ?></td>
                                 
                                     <td>
-                                         <?php if($value->store_status==1){
-                                            echo "Active";
-                                       }elseif($value->store_status==0){
-                                             echo "Offline";
-                                       }?>
+                                         <?php if($value->store_status==1){?>
+                                            <span class style="color:#06B106">Online</span>  
+                                      <?php }elseif($value->store_status==0){?>
+
+                                       <span style="color:#666565">Offline</span>
+                                            
+                                      <?php }?>
+                                              <br>
+
+                                              <?php if($value->admin_approve==1){?>
+                                                <span class style="color:#06B106">Active</span>  
+                                      <?php }elseif($value->admin_approve==0){?>
+                                        <span class style="color:#B12006">Suspended</span> 
+                                            
+                                     <?php  }?>
+
                                     </td>
                                     <td><?php $merchant_details = $this->MerchantModel->get_merchant($value->merchant_id);
                                        echo $merchant_details->first_name . "  ".$merchant_details->last_name;
                                     ?></td>
                                    <td>
-                                        <a class="btn btn-info" href="<?php echo base_url()?>edit-product/">Edit</a>
-                                        <a class="btn btn-danger" href="<?php echo base_url()?>delete-product/.">Delete</a>
+                                        <a class="btn btn-info" href="<?php echo base_url()?>edit-store/<?php echo $value->id ?>"><i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-danger" href="<?php echo base_url()?>delete-store/12"><i class="fa fa-exclamation-triangle"></i></a>
                                     </td> 
                                     
                                 </tr>

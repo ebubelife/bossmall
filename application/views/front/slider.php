@@ -1,6 +1,6 @@
-<?php $all_slider = $this->ProductModel->get_all_top_product()?>
+<?php $all_slider = $this->HomeModel->get_slider_images();?>
 
-<div class="col-sm-12">
+<div class="col-sm-12 slider-section">
 	<div id="slider-carousel" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
 			<li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
@@ -28,7 +28,7 @@
 					<button type="button" class="btn btn-default get">Get it now</button>
 				</div>-->
 				<div class="col-sm-12">
-					<img src="<?php echo base_url('assets/front/images/home/honey_ad.jpg')?>" class="girl img-responsive" alt="" />
+					<img src="<?php echo base_url('assets/front/images/home/sliders/').$slider->header_url?>" class="girl img-responsive" alt="" />
 					
 				</div>
 			<!--	<div class="col-sm-12">
@@ -41,12 +41,12 @@
 
 		</div>
 		
-		<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+		<!--<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
 			<i class="fa fa-angle-left"></i>
 		</a>
 		<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
 			<i class="fa fa-angle-right"></i>
-		</a>
+		</a>-->
 	</div>
 	
 </div>

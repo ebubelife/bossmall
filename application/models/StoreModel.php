@@ -4,21 +4,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class StoreModel extends CI_Model {
 
 	
-	public function add_store_model($product_image){
-		$data['pro_title'] = $this->input->post('pro_title',true);
-		$data['pro_desc'] = $this->input->post('pro_desc',true);
-		$data['pro_cat'] = $this->input->post('pro_cat',true);
-		$data['pro_sub_cat'] = $this->input->post('pro_sub_cat',true);
-		$data['pro_brand'] = $this->input->post('pro_brand',true);
-		$data['pro_price'] = $this->input->post('pro_price',true);
-		$data['pro_quantity'] = $this->input->post('pro_quantity',true);
-		$data['pro_availability'] = $this->input->post('pro_availability',true);
-		$data['pro_status'] = $this->input->post('pro_status',true);
-		$data['pro_image'] = $product_image;
-		$data['top_product'] = $this->input->post('top_product',true);
+	public function add_store_model(){
+		$data['category_id'] = $this->input->post('category',true);
+		$data['store_name'] = $this->input->post('store_name',true);
+		$data['store_description'] = $this->input->post('store_description',true);
+		$data['store_address'] = $this->input->post('store_address',true);
+		$data['city'] = $this->input->post('city',true);
+		$data['country'] = $this->input->post('country',true);
+		$data['state'] = $this->input->post('state',true);
+		$data['zip_code'] = $this->input->post('zip',true);
+		$data['sell_global'] = $this->input->post('sell_globally',true);
+		$data['store_status'] = 1;
+		$data['admin_approve'] = 1;
+		$data['merchant_id'] = $this->session->userdata('selected_merchant_id');
+
+		$generatedNum = $this->generateStoreNumber();
+
+			$data["store_num"] = "s".$generatedNum;
+	//	$data['country'] = $this->input->post('country',true);
+		
 
 		
 		$this->db->insert('tbl_stores',$data);	
+		return true;
 	}
 	public function get_all_store($limit=null){
 		if($limit){
@@ -41,6 +49,19 @@ class StoreModel extends CI_Model {
 		}
 	}
 
+	public function get_single_store($store_id){
+		if($store_id){
+		$data = $this->db->select('*')
+			->from('tbl_stores')
+			->where('id',$store_id)
+			
+			->get()
+			->row();
+			return $data;
+		}
+		
+	}
+
 	
 	public function get_all_store_products(){
 		$data = $this->db->select('*')
@@ -50,6 +71,7 @@ class StoreModel extends CI_Model {
 			->result();
 			return $data;
 	}
+
 	public function set_status_store(){
 		$data = $this->db->select('*')
 			->from('tbl_product')
@@ -58,30 +80,22 @@ class StoreModel extends CI_Model {
 			->result();
 			return $data;
 	}
-	public function edit_store_model($product_id){
-		$data = $this->db->select('*')
-			->from('tbl_product')
-			->order_by('pro_id','desc')
-			->where('pro_id',$product_id)
-			->get()
-			->row();
-			return $data;
-	}
-	public function update_store_model($product_image){
-		$product_id = $this->input->post('pro_id',true);
-		$data['pro_title'] = $this->input->post('pro_title',true);
-		$data['pro_desc'] = $this->input->post('pro_desc',true);
-		$data['pro_cat'] = $this->input->post('pro_cat',true);
-		$data['pro_sub_cat'] = $this->input->post('pro_sub_cat',true);
-		$data['pro_brand'] = $this->input->post('pro_brand',true);
-		$data['pro_price'] = $this->input->post('pro_price',true);
-		$data['pro_quantity'] = $this->input->post('pro_quantity',true);
-		$data['pro_availability'] = $this->input->post('pro_availability',true);
-		$data['pro_status'] = $this->input->post('pro_status',true);
-		$data['pro_image'] = $product_image;
-		$data['top_product'] = $this->input->post('top_product',true);
-		$this->db->where('pro_id',$product_id);
-		$this->db->update('tbl_product',$data);
+
+	public function update_store_model($store_id){
+		$data['merchant_id'] = $this->session->userdata('selected_merchant_id');
+		$data['store_name'] = $this->input->post('store_name',true);
+		$data['store_description'] = $this->input->post('store_description',true);
+		$data['category_id'] = $this->input->post('category',true);
+		$data['store_address'] = $this->input->post('store_address',true);
+		$data['city'] = $this->input->post('city',true);
+		$data['state'] = $this->input->post('state',true);
+		$data['zip_code'] = $this->input->post('zip',true);
+		$data['country'] = $this->input->post('country',true);
+		$data['sell_global'] = $this->input->post('sell_globally',true);
+		
+		$this->db->where('id',$store_id);
+		$this->db->update('tbl_stores',$data);
+		return true;
 		
 	}
 	public function delete_store_model($product_id){
@@ -92,4 +106,23 @@ class StoreModel extends CI_Model {
 	}
 	
 
+	public function generateStoreNumber(){
+		$generateStoreNum = mt_rand(111111,999999);
+
+		$sql = "SELECT * FROM tbl_stores WHERE store_num = ? ";
+
+        $query = $this->db->query($sql, array($generateStoreNum));
+       
+
+        if($query->num_rows() == 1) {
+
+	            generateStoreNumber();         
+			
+		}
+           
+            else{
+                return $generateStoreNum; 
+            }
+
+        }
 }

@@ -21,6 +21,15 @@ class HomeModel extends CI_Model {
 	    return $query->row();
 	}
 
+	public function get_slider_images(){
+		$this->db->select('*');
+	    $this->db->from('tbl_slider_images');
+		
+	  
+	    $query = $this->db->get();
+	    return $query->result();
+	}
+
 	public function get_store_by_id($store_id){
 		$this->db->select('*');
 	    $this->db->from('tbl_stores');

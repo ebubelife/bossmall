@@ -101,9 +101,15 @@ $route['delete-product/(.+)'] = 'Product/delete_product/$1';
 
 /*Merchant & store*/
 $route['add-merchant'] = 'Merchant/add_merchant_form';
-$route['merchant-list'] = 'Merchant/show_merchant_list';
+$route['save-merchant'] = 'Merchant/add_merchant';
+$route['merchant-list'] = 'Merchant/merchant_list';
 $route['new-store'] = 'Store/add_store_form';
 $route['store-list'] = 'Store/show_store_list';
+$route['insert_store'] = 'Store/insert_store';
+$route['edit-store/(.+)'] = 'Store/edit_store/$1';
+$route['search-user'] = 'Merchant/search_user_string';
+$route['add-cookie-id'] = 'Merchant/add_cookie_id';
+$route['update-store-details/(.+)'] = 'Store/update_details_store/$1';
 
 // Cart Class
 $route['add-to-cart'] = 'Cart/add_to_cart';

@@ -325,9 +325,38 @@ table.dataTable thead .sorting:after {
     background-color: #eee !important;
 }
 
+.merch-details{font-size:18px;}
+
 .show-grid {
     margin: 15px 0;
 }
 
 .success{color:green; font-size:16px;}
 .error{color:red; font-size:17px;}
+
+.full-detail-trigger:hover{cursor:pointer;font-weight:bold;color:#5bc0de}
+
+.top-bg-change{
+    height:100px; width:100%;
+  }
+
+  .top-bg-change div{
+    height:100%; width:100%; background-color: rgba(0,0,0,0.4); cursor:pointer; padding-top:35px;;
+  }
+
+  .top-bg-change div p:hover{
+    color:rgb(146, 143, 143); cursor:pointer;  font-size:20px;
+  }
+
+  #all_names_here{width:100%; padding-left:5%;}
+
+
+
+  #all_names_here p {
+      color:rgb(78, 80, 78);font-size:17px;cursor:pointer;
+  }
+
+  #all_names_here p:hover {
+    color:rgb(24, 24, 24);font-size:17px;cursor:pointer;
+}
+

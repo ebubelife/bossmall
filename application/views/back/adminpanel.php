@@ -22,6 +22,12 @@
     <link href="<?php echo base_url()?>assets/back/plugins/dataTables/dataTables.bootstrap.css?<?php echo time()?>" rel="stylesheet" />
      <link href="<?php echo base_url()?>assets/back/plugins/pace/pace-theme-big-counter.css?<?php echo time()?>" rel="stylesheet" />
 
+
+     <style>
+
+.single-items{font-weight:bold;color:green;}
+
+</style>
    </head>
 <body>
     <!--  wrapper -->
