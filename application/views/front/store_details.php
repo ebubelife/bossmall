@@ -11,8 +11,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
+				
 				<?php if(isset($store_header)){
 						echo $store_header;
+
+						
 					}?>
 					
 				</div>
@@ -37,9 +40,9 @@
 						echo $store_products;
 					}?>
 					
-					<?php if(isset($feature)){
-						echo $feature;
-					}?>99
+					<?php 
+						echo $other_product;
+					?>
 					
 					<!-- This is Category Post option -->
 					

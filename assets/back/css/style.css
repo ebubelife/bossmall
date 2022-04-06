@@ -32,7 +32,7 @@ limitations under the License.*/
  #wrapper {
     width: 100%;
     margin-top: 55px!important; 
-    background-color:#04B173; 
+    background-color:#ffffff; height:100%;
 }
 
 #page-wrapper {
@@ -359,4 +359,6 @@ table.dataTable thead .sorting:after {
   #all_names_here p:hover {
     color:rgb(24, 24, 24);font-size:17px;cursor:pointer;
 }
+
+#wrapper{}
 

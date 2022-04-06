@@ -6,6 +6,10 @@
            <!-- page header -->
            <div class="col-lg-12">
             <h1 class="page-header">Forms Element</h1>
+            
+            <?php //echo  base64_decode($this->session->userdata("all-images")); ?>
+
+            <?php echo  $this->session->userdata("error_image"); ?>
         </div>
         <!--end page header -->
     </div>
@@ -105,10 +109,19 @@
                                         <?php } ?>
                                     </select>
                                 </div>
-                                 <div class="form-group">
-                                    <label>Add Product Price</label>
-                                    <input type="number" class="form-control" value="<?php echo $all_product->pro_price?>" name="pro_price" required="">
+                                  <div class="form-group">
+                                    <label>Discount Price</label>
+                                    <input type="number" class="form-control" value="<?php echo $all_product->discount_price?>" id="discount_price" name="discount_price" required="">
                                 </div>
+                                 <div class="form-group">
+                                    <label>Regular Price</label>
+                                    <input type="number" class="form-control" value="<?php echo $all_product->pro_regular_price?>" id="pro_regular_price" name="pro_regular_price" >
+                                </div>
+                                 <div class="form-group">
+                                    <label>BossMall Selling Price</label>
+                                    <input type="number" class="form-control" value="<?php echo $all_product->pro_price?>" id="pro_price" name="pro_price" >
+                                </div>
+                                
                                  <div class="form-group">
                                     <label>Add Product Quantity</label>
                                     <input type="number" class="form-control" value="<?php echo $all_product->pro_quantity?>" name="pro_quantity" required="">
@@ -146,10 +159,28 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                  
                                     <label>Upload Product Image</label>
-                                    <input type="file" name="pro_image" multiple="multiple" accept="image/*">
+                                    <input type="file" name="pro_image[]" id="pro_image" accept="image/*" multiple="multiple">
                                     <input type="hidden" name="old_pro_image" value="<?php echo $all_product->pro_image?>">
-                                    <img src="<?php echo base_url().$all_product->pro_image?>" width="80" height="50"/>
+                                   
+                                   
+                                   <!---------- ---------------->
+ 
+
+
+                                <?php  $img_arr = base64_decode($all_product->pro_image);
+                                    $img_arr = unserialize($img_arr);
+                                
+                                for($i=0; $i<count($img_arr);$i++){?>
+                                
+                                <img src="<?php echo base_url().$img_arr[$i]?>" width="80" height="50"/>
+                                
+                                <?php } ?>
+                                   
+                                   <!----------- --------------->
+                                   
+                                   
 
                                 </div>
                                  <div class="form-group">
@@ -175,5 +206,29 @@
     </div>
 </div>
 <!-- end page-wrapper -->
+<script>
+
+
+$(document).ready(function () {
+    
+    $("#discount_price").keyup(function(){
+        
+       let discount =  $("#discount_price").val();
+       let regular =  $("#pro_regular_price").val();
+       let sellling =  $("#pro_price").val();
+       
+       let percentage = (20/100)*discount;
+       let total_amount  = parseInt(percentage) + parseInt(discount);
+       
+       
+       
+      $("#pro_price").val(total_amount);
+        
+    });
+    
+});
+</script>
+
+
 
 

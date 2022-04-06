@@ -75,18 +75,28 @@
                                 
                                     <td>
                                          <?php if($value->store_status==1){?>
-                                            <span class style="color:#06B106">Online</span>  
+                                            <a class="store_state" data-store-id="<?php  echo $value->id ?>" style="color:#06B106;cursor:pointer">Online</a>  
                                       <?php }elseif($value->store_status==0){?>
 
-                                       <span style="color:#666565">Offline</span>
+                                       <a class="store_state" data-store-id="<?php  echo $value->id ?>" style="color:#666565;cursor:pointer">Offline</a>
                                             
                                       <?php }?>
                                               <br>
 
                                               <?php if($value->admin_approve==1){?>
-                                                <span class style="color:#06B106">Active</span>  
+                                                <a class="admin_status"  data-store-id="<?php  echo $value->id ?>" style="color:#06B106;cursor:pointer">Active</a>  
                                       <?php }elseif($value->admin_approve==0){?>
-                                        <span class style="color:#B12006">Suspended</span> 
+                                        <a class="admin_status" data-store-id="<?php  echo $value->id ?>" style="color:#B12006;cursor:pointer">Processing</a>
+                                            
+                                     <?php  }?>-
+
+                                     <?php if($value->queried==0 && $value->admin_approve==0){?>
+                                        <a class="queried" data-store-id="<?php  echo $value->id ?>" style="color:#4F0DB8;cursor:pointer">Query </a>
+                                            
+                                     <?php  }?>
+
+                                     <?php if($value->queried==1 && $value->admin_approve==0){?>
+                                        <a class="queried" data-store-id="<?php  echo $value->id ?>" style="color:#4F0DB8;cursor:pointer">Queried </a>
                                             
                                      <?php  }?>
 
@@ -114,7 +124,124 @@
     <script src="<?php echo base_url()?>assets/back/plugins/dataTables/jquery.dataTables.js"></script>
    
     <script>
+
         $(document).ready(function () {
             $('#dataTables-example').dataTable();
+            var url = document.location.origin;
+
+            $(".store_state").click(function(){
+                let store_status_s = $(this).text();
+                let store_id = $(this).data("store-id");
+
+               
+                if(store_status_s === "Online"){
+                    let store_details = [0,store_id];
+
+                    $.ajax({ url: url+"/bmall/store/change_store_status",
+                    type: "POST", 
+                    data: { data: JSON.stringify(store_details) },
+                    success: function(response) {
+            
+                        window.location.reload();
+         
+        }
+                   });
+                }//end if
+                
+                if(store_status_s === "Offline"){
+                    let store_details = [1,store_id];
+
+                    $.ajax({ url: url+"/bmall/store/change_store_status",
+                    type: "POST", 
+                    data: { data: JSON.stringify(store_details) },
+                    success: function(response) {
+            
+                        window.location.reload();
+         
+        }
+                   });
+                }
+
+            });
+
+            /************************Set admin approve for store **********************/
+
+            
+            $(".admin_status").click(function(){
+                let store_status_s = $(this).text();
+                let store_id = $(this).data("store-id");
+
+               
+                if(store_status_s === "Active"){
+                    let store_details = [0,store_id];
+
+                    $.ajax({ url: url+"/bmall/store/change_admin_approve",
+                    type: "POST", 
+                    data: { data: JSON.stringify(store_details) },
+                    success: function(response) {
+                      //  alert(response);
+                        window.location.reload();
+         
+        }
+                   });
+                }//end if
+                
+                if(store_status_s === "Processing"){
+                    let store_details = [1,store_id];
+
+                    $.ajax({ url: url+"/bmall/store/change_admin_approve",
+                    type: "POST", 
+                    data: { data: JSON.stringify(store_details) },
+                    success: function(response) {
+            
+                    // alert(response);
+                        window.location.reload();
+         
+        }
+                   });
+                }
+
+            });
+
+            /************************Set query status for store **********************/
+
+            
+            $(".admin_status").click(function(){
+                let store_status_s = $(this).text();
+                let store_id = $(this).data("store-id");
+
+               
+                if(store_status_s === "Queried"){
+                    let store_details = [0,store_id];
+
+                    $.ajax({ url: url+"/bmall/store/change_admin_approve",
+                    type: "POST", 
+                    data: { data: JSON.stringify(store_details) },
+                    success: function(response) {
+                      //  alert(response);
+                        window.location.reload();
+         
+        }
+                   });
+                }//end if
+                
+                if(store_status_s === "Query"){
+                    let store_details = [1,store_id];
+
+                    $.ajax({ url: url+"/bmall/store/change_admin_approve",
+                    type: "POST", 
+                    data: { data: JSON.stringify(store_details) },
+                    success: function(response) {
+            
+                    // alert(response);
+                        window.location.reload();
+         
+        }
+                   });
+                }
+
+            });
         });
+
+
     </script> 

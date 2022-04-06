@@ -22,8 +22,11 @@ class MerchantModel extends CI_Model {
 	}
 
 
+	
+
 public function add_merchant_model(){
 		$data['first_name'] = $this->input->post('merchant_fname',true);
+		$data['referredby'] = $this->input->post('boss-agent',true);
 		$data['last_name'] = $this->input->post('merchant_lname',true);
 		$data['other_names'] = $this->input->post('merchant_othername',true);
 		$data['email'] = $this->input->post('merchant_email',true);

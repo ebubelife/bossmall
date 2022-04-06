@@ -83,7 +83,10 @@
                                     <input type="text" class="form-control" value="" name="merchant_acc_num">
                                 </div>
 
-
+                                <div class="form-group">
+                                    <label>Referred By(BossAgent username):</label>
+                                    <input type="text" class="form-control" value="" name="boss-agent">
+                                </div>
                                  
                                  
                                 <button type="submit" class="btn btn-primary">Save</button>

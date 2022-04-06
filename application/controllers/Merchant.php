@@ -51,6 +51,39 @@ class Merchant extends CI_Controller{
 		}
 	}
 
+	public function edit_merchant_form($merchant_id){
+
+		if ($this->form_validation->run() == TRUE) {
+		$update = $this->MerchantModel->edit_merchant_model($merchant_id);
+	
+		if($update){
+		$this->session->set_flashdata("flash_msg","<font class='success'>Store Added Successfully</font>");
+		redirect('merchant-list');
+		}else{
+			$this->session->set_flashdata("flash_msg","<font class='error'>An error occured</font>");
+			redirect("add-merchant");
+		}
+	}
+	else{
+		if($_SERVER['REQUEST_METHOD']=='POST'){
+			$this->session->set_flashdata('error', 'An Error occurred!!');
+
+		  }
+
+		$data = array();
+		$data["title"] = "BossMall Admin Panel- Edit Merchant";
+		
+		$banks = $this->banks->return_banks();
+		$data["banks"]= $banks;
+
+		//echo json_encode($banks);
+	//	$data['all_sub_cat'] = $this->ProductModel->get_all_sub_category();
+		$data['main_content'] = $this->load->view('back/add_merchant',$data,true);
+		$this->load->view('back/adminpanel',$data);
+
+	}
+	}
+
 	public function search_user_string(){
 
 		$search_string = json_decode($_POST["p_data"]);
@@ -59,6 +92,15 @@ class Merchant extends CI_Controller{
 
 		//echo "ggg";
 		echo json_encode($check_user);
+
+	}
+
+	public function details($merchant_id){
+		$data = array();
+		$merchant_data = $this->MerchantModel->get_merchant($merchant_id);
+		$data["merchant_data"] = $merchant_data;
+		$data['main_content'] = $this->load->view('back/view_merchant_details',$data,true);
+		$this->load->view('back/adminpanel',$data);
 
 	}
 

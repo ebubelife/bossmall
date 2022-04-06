@@ -125,4 +125,30 @@ class StoreModel extends CI_Model {
             }
 
         }
+
+		public function change_store_status($status, $id){
+
+			$sql = "UPDATE tbl_stores SET store_status = '$status'  WHERE id = ?";
+			$query = $this->db->query($sql, array($id));
+			if($query){
+		   
+			return true;
+		}
+		else{
+			return false;
+		}
+		}
+
+		public function change_admin_approve($approve, $id){
+
+			$sql = "UPDATE tbl_stores SET admin_approve = '$approve'  WHERE id = ?";
+			$query = $this->db->query($sql, array($id));
+			if($query){
+		   
+			return true;
+		}
+		else{
+			return false;
+		}
+		}
 }

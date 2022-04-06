@@ -13,6 +13,8 @@ class CategoryModel extends CI_Model {
 		$this->db->insert('tbl_sub_category',$data);
 
 	}
+
+	
 	public function get_all_category(){
 		$data = $this->db->select('*')
 			->from('tbl_category')
@@ -58,6 +60,16 @@ class CategoryModel extends CI_Model {
 		$this->db->delete('tbl_sub_category');
 	}
 	public function edit_caegory_by_id($category_id){
+		$data = $this->db
+				->select('*')
+				->from('tbl_category')
+				->where('category_id', $category_id)
+				->get()
+				->row();
+		return $data;
+	}
+
+	public function view_category_by_id($category_id){
 		$data = $this->db
 				->select('*')
 				->from('tbl_category')

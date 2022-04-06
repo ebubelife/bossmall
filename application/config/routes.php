@@ -55,6 +55,7 @@ $route['default_controller'] = 'home';
 $route['products'] = 'Home/productpage';
 $route['product-details/(.+)'] = 'Home/product_details/$1';
 $route['store-details/(.+)'] = 'Home/store_details/$1';
+$route['category-products/(.+)'] = 'Home/category_products/$1';
 $route['show-post-by-brand-id/(.+)'] = 'Home/show_post_by_brand_id/$1';
 $route['show-post-by-sub-cat-id/(.+)'] = 'Home/show_post_by_sub_cat_id/$1';
 $route['show-product-by-price-range'] = 'Home/show_product_by_price_range';
@@ -101,6 +102,8 @@ $route['delete-product/(.+)'] = 'Product/delete_product/$1';
 
 /*Merchant & store*/
 $route['add-merchant'] = 'Merchant/add_merchant_form';
+$route['merchant-details/(.+)'] = 'Merchant/details/$1';
+$route['edit-merchant/(.+)'] = 'Merchant/edit_merchant_form/$1';
 $route['save-merchant'] = 'Merchant/add_merchant';
 $route['merchant-list'] = 'Merchant/merchant_list';
 $route['new-store'] = 'Store/add_store_form';
@@ -110,6 +113,9 @@ $route['edit-store/(.+)'] = 'Store/edit_store/$1';
 $route['search-user'] = 'Merchant/search_user_string';
 $route['add-cookie-id'] = 'Merchant/add_cookie_id';
 $route['update-store-details/(.+)'] = 'Store/update_details_store/$1';
+$route['change-store-status'] = 'Store/change_store_status';
+$route['change-admin-approve'] = 'Store/change_admin_approve';
+
 
 // Cart Class
 $route['add-to-cart'] = 'Cart/add_to_cart';

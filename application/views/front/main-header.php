@@ -41,25 +41,19 @@
     <link rel="apple-touch-icon-precomposed" href="<?php echo base_url()?>assets/front/images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 
-<body>
+<body class="main-body" id="main-c-body">
 
-<div class="menu-slide">
+<div class="menu-slide" id="menu-slide">
 	<div class="container-fluid">
-		<div class="col-md-12">
+	
 
-		<div class="logo">
+
+		<div class="col-md-12">
+		    	<div class="logo">
 							<a href="<?php echo base_url();?>">  <img src="<?php echo base_url()?>assets/front/images/home/FIRST_LOGO.png" alt="" /></a>
-		</div>
 
 		<hr>
 
-		
-
-
-</div>
-
-</div>
-		<div class="col-md-12">
 
 <ul class="mobile-menu">
 <li class="mobile-menu-items"><a class="" href="#" id=""><?php echo "Support" ?></a></li>
@@ -75,13 +69,13 @@
 <?php $categories = $this->CategoryModel->get_all_category();
 		  foreach($categories as $category){
 ?>
-	<li class="mobile-menu-items"><a class="" href="#" id="<?php echo "c-".$category->category_id ?>"><?php echo $category->category_name ?></a></li>
+	<li class="mobile-menu-items"><a class="" href="<?php echo base_url()."category-products/".$category->category_id ?>" id="<?php echo "c-".$category->category_id ?>"><?php echo $category->category_name ?></a></li>
 
 	
 <?php } ?>
 		</ul>
-		  </div>
-
+		  </div> </div>
+</div>
 </div>
 
 	<header id="header"><!--header-->

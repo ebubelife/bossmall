@@ -41,8 +41,9 @@
       </div>
       <div class="modal-body">
       <div class="form-group">
+
                                     <label>Merchant Name Here</label>
-                                    <input type="text" class="form-control" value="" name="search_merchant_name" id="search_merchant_name" required="" data-toggle="modal" data-target="#myModal">
+                                    <input type="text" class="form-control" value="" name="search_merchant_name" value="<?php echo $merchant->id?>" id="search_merchant_name" required="" data-toggle="modal" data-target="#myModal">
                                 </div>
       </div>
 
@@ -68,7 +69,7 @@
           </div><br>
           <div class="form-group">
                                     <label>Merchant Name:</label>
-                                    <input type="text" class="form-control" value="" name="merchant_name" id="merchant_name" required data-toggle="modal" data-target="#myModal">
+                                    <input type="text" class="form-control" value="<?php echo $stores->store_name ?>" name="merchant_name" id="merchant_name" required data-toggle="modal" data-target="#myModal">
                                 </div>
                            
                             <div class="form-group">

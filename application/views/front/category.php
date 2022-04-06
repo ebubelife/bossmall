@@ -48,7 +48,7 @@
 		<?php $categories = $this->CategoryModel->get_all_category();
 		          foreach($categories as $category){
 		?>
-			<li class="left-side-cat-li"><a class="left-side-cat-a" href="#" id="<?php echo "c-".$category->category_id ?>"><?php echo $category->category_name ?></a></li>
+			<li class="left-side-cat-li"><a class="left-side-cat-a" href="<?php echo base_url()."category-products/".$category->category_id ?>" id="<?php echo "c-".$category->category_id ?>"><?php echo $category->category_name ?></a></li>
 
 			
 <?php } ?>
@@ -77,9 +77,6 @@
 		
 		</div><!--/categories-list-->
 
-		<div class="shipping img-side-bar text-center"><!--shipping-->
-			<img src="<?php echo base_url()?>assets/front/images/home/shipping.jpg" alt="" />
-		</div><!--/shipping-->
 
 		
 		

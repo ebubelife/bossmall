@@ -3,26 +3,49 @@
 $(document).ready(function(){
 
 	var mobile_slider = document.getElementById("scrollable-en");
-	 for(var i=0;i<2;i++){
+	var inte = 0; reverse = 0;
+	 
 
-		setTimeout(function(){
-			mobile_slider.scrollBy(100, 0);
-	//	mobile_slider.style.visibility = "hidden";
-	//	$(".mobile-slider").hide();
-		}, 1000);
-	 }
+		setInterval(function(){
+			if(inte <5 & reverse ==0){
+			mobile_slider.scrollBy(330, 0);		
+			inte++;
+		//	alert(inte);
+			}
+
+			if(inte ==4){
+				reverse =1;
+				
+			}
+
+			if(inte > -1 & reverse ==1){
+				reverse =1;
+				mobile_slider.scrollBy(-330, 0);		
+				inte--;//alert(inte);
+			}
+
+			if(inte ==0){
+				reverse =0;
+			//	mobile_slider.scrollBy(330, 0);		
+			//	inte++;
+			}
+		
+		}, 3000);
+	 
 
 
 	var menu_open = false;
 	$(".navbar-toggle").click(function(){
 
-		if(menu_open==false){
+			if(menu_open==false){
 			$(".menu-slide").addClass("menu-open");
 			menu_open = true;
+			$(".main-body").css({"overflow-y":"hidden"});
 		}
 		else{
 			$(".menu-slide").removeClass("menu-open");
 			menu_open = false;
+			$(".main-body").css({"overflow-y":"auto"});
 		}
 	
 
@@ -110,6 +133,79 @@ $(document).ready(function(){
 	        zIndex: 2147483647 // Z-Index for the overlay
 		});
 	});
+});
+
+/*
+   featured items scroll
+   
+
+
+*/
+
+$(document).ready(function(){
+
+	$(".mcr").click(function(){
+		
+
+		var feature_swipe = document.getElementById("listing-s");
+
+		feature_swipe.scrollBy(330, 0);		
+
+	});
+	$(".mcl").click(function(){
+		
+
+		var feature_swipe = document.getElementById("listing-s");
+
+		feature_swipe.scrollBy(-330, 0);		
+
+	});
+
+});
+
+
+
+$(document).ready(function(){
+
+	$(".mcr-t").click(function(){
+		
+
+		var feature_swipe = document.getElementById("feature-two");
+
+		feature_swipe.scrollBy(330, 0);		
+
+	});
+	$(".mcl-t").click(function(){
+		
+
+		var feature_swipe = document.getElementById("feature-two");
+
+		feature_swipe.scrollBy(-330, 0);		
+
+	});
+
+});
+
+$(document).ready(function(){
+
+	$(".mcr-other-c").click(function(){
+		
+
+		var feature_swipe = document.getElementById("o-store-products");
+
+		feature_swipe.scrollBy(330, 0);		
+
+	});
+	$(".mcl-other-c").click(function(){
+		
+	
+
+		var feature_swipe = document.getElementById("o-store-products");
+
+		feature_swipe.scrollBy(-330, 0);		
+
+	});
+
 });
 
 

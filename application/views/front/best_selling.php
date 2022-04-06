@@ -1,6 +1,6 @@
 <div class="features_items"><!--features_items-->
 	<h2 class="title text-center"><?php echo $section_title_two?></h2>
-	<?php $allproduct = $this->ProductModel->get_all_products_filter(4);?>
+	<?php $allproduct = $this->ProductModel->get_all_products_filter(4,0);?>
 	<?php foreach ($allproduct as $product) {?>
 	<?php if($product->pro_status==1){?>
 	<div class="col-sm-3">
@@ -40,4 +40,5 @@
 	</div>
 
 	<?php } }?>
+	
 </div><!--features_items-->

@@ -63,18 +63,27 @@ class Home extends CI_Controller {
 		$data['feature'] = $this->load->view('front/feature',$data,true);
 		$data["section_title_two"] = "Popular Products";
 		$data['best_selling'] = $this->load->view('front/best_selling',$data,true);
+		$data['feature_on'] = true;
 		$data['category_brand'] = $this->load->view('front/category','',true);
 		$this->load->view('front/index',$data);
 	}
 	public function product_details($product_id){
+	    
+	    
 		$data =array();
-		$data['slider'] = "";
+		$data['slider'] = $this->load->view('front/slider','',true);
+		$data['mobile_slider'] = $this->load->view('front/mobile_slider','',true);
+		$data['feature_on'] = false;
+		$data["section_title_one"] = "Similar Items";
+		$data['main_header'] = $this->load->view('front/main-header',$data,true);
 		$data['recommended'] = $this->load->view('front/recommended','',true);
 		$data['product_info'] = $this->HomeModel->get_product_by_id($product_id);
-		$data['feature'] = $this->load->view('front/product_details',$data,true);
+		$data['feature'] = $this->load->view('front/feature',$data,true);
+		$data['product_details'] = $this->load->view('front/product_details',$data,true);
 		$data['category_brand'] = $this->load->view('front/category','',true);
-		$this->load->view('front/index',$data);
+		$this->load->view('front/product_det_view',$data);
 	}
+
 
 	public function store_details($store_id){
 		$data =array();
@@ -85,6 +94,7 @@ class Home extends CI_Controller {
 		//$data['product_info'] = $this->HomeModel->get_product_by_id($product_id);
 		$data['store_info'] = $this->HomeModel->get_store_by_id($store_id);
 		$data["section_title_one"] = "";
+		$data['other_product'] = $this->load->view('front/other_product',$data,true);
 		$data['feature'] = $this->load->view('front/feature',$data,true);
 		$data['store_products'] = $this->load->view('front/store_products',$data,true);
 		$data['category_brand'] = $this->load->view('front/category','',true);
@@ -92,6 +102,22 @@ class Home extends CI_Controller {
 		
 		$this->load->view('front/store_details',$data);
 	}
+
+	public function category_products($cat_id){
+		$data =array();
+		$data['main_header'] = $this->load->view('front/main-header',$data,true);
+		$data['slider'] = "";
+		$data["section_title_one"] = "From Other Stores";
+		$data["section_title_one"] = "";
+		$data['other_product'] = $this->load->view('front/other_product',$data,true);
+		$data['feature'] = $this->load->view('front/feature',$data,true);
+		$data['category_products'] = $this->load->view('front/category_products',$data,true);
+		$data['category_brand'] = $this->load->view('front/category','',true);
+		$data['store_header'] = $this->load->view('front/advertise_top',$data,true);
+		
+		$this->load->view('front/cat_products_page',$data);
+	}
+
 	public function show_post_by_brand_id($brand_id){
 		$data =array();
 		$data['slider'] = $this->load->view('front/advertise_top','',true);

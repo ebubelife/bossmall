@@ -54,60 +54,102 @@ class Product extends CI_Controller{
 		
 	}
 	private function upload_product_image(){
-		$config['upload_path']          = './uploads/';
-        $config['allowed_types']        = 'png|gif|jpg|jpeg';
-        $config['max_size']             = 10240;//kb
-       // $config['max_width']            = 1024;
-       // $config['max_height']           = 768;
-        $this->load->library('upload', $config);
-        if($this->upload->do_upload('pro_image')){
-        	$data = $this->upload->data();
-        	$image_path = "uploads/$data[file_name]";
+		$this->load->library('upload');
+		$dataInfo = array(); 
+		$files = $_FILES;
+		$cpt = count($_FILES['pro_image']['name']);
+		$imageUrl = ""; $imageArray = array(); $allImages = ""; $filename_one_url ="";
+	
+		$config = array(
+			'upload_path' => "./uploads/",
+			'allowed_types' => "gif|jpg|png|jpeg",
+			'overwrite' => TRUE,
+			'max_size' => "10485760", // Can be set to particular file size , here it is 2 MB(2048 Kb)
+			//'max_height' => "768",
+			//'max_width' => "1024"
 			
-			
-			$config['image_library'] = 'gd2';
-			$config['create_thumb'] = FALSE;  
-			$config['maintain_ratio'] = TRUE;  
-			$config['quality'] = '60%';  
-			$config['source_image'] = $image_path;
-			//$config['width'] = 300;
-			//$config['height'] = 300;
-			$config['new_image'] = $image_path;  
+			);
 
-			//$this->load->library('image_lib', $config);  
-                    // $this->image_lib->resize();  
+			
+
+			for($i=0; $i<$cpt; $i++)
+			{ 
+				$config['file_name'] = $_FILES['pro_image']['name'][$i];
 		
+				$_FILES['pro_image']['name']= $files['pro_image']['name'][$i];
+				$_FILES['pro_image']['type']= $files['pro_image']['type'][$i];
+				$_FILES['pro_image']['tmp_name']= $files['pro_image']['tmp_name'][$i];
+				$_FILES['pro_image']['error']= $files['pro_image']['error'][$i];
+				$_FILES['pro_image']['size']= $files['pro_image']['size'][$i];    
 		
-        	return $image_path;
-        }else{
-        	  $error =  $this->upload->display_errors();
-        	$this->session->set_userdata('error_image',$error);
-        	//redirect("Product/add_product_form");
+				$this->upload->initialize($config);
+				if($this->upload->do_upload('pro_image'))
+				{
+					$dataInfo[] = $this->upload->data();
 
-			//store the file info
-			
-        }
+					$filename = $dataInfo[$i]['file_name'];
 
+					$filename_one = $dataInfo[0]['file_name'];
+
+					// Initialize array
+					$data['filenames'][] = $filename;
+
+					
+
+					$imageUrl = "uploads/".$filename;
+
+					$filename_one_url = "uploads/".$filename_one;
+					
+
+					array_push($imageArray,$imageUrl);
+				
+
+				}
+
+				else{
+					$error = array('error' => $this->upload->display_errors());
+					//$this->load->view('custom_view', $error);
+
+				
+
+
+					echo json_encode($error);
+					$this->session->set_userdata('error_image',json_encode($error));
+
+
+				}
+				
+		
+			}
+
+			$allImages = base64_encode(serialize($imageArray));
+
+			return  $allImages;
+
+			$this->session->set_userdata("all-images",$allImages);
+		
 	}
 	public function update_product(){
 		//$this->PrductModel->update_product_model();
-		if($_FILES['pro_image']['name']=="" || $_FILES['pro_image']['size']==""){
+		if(count(array_filter($_FILES['pro_image']['name']))==0){
 			$product_image= $this->input->post('old_pro_image',true);
 			$this->ProductModel->update_product_model($product_image);
 			$this->session->set_flashdata("update_pro_msg","Product Updated Successfully");
+			
+			
 			$product_id = $this->input->post('pro_id',true);
-			redirect('edit-product/'.$product_id);
-
+			redirect('product-list');
+			
 		}else{
 			$product_id = $this->input->post('pro_id',true);
 			$product_image = $this->upload_product_image();
 			if($product_image==NULL){
-			redirect('edit-product/'.$product_id);
+				redirect('product-list');
 			}else{
 			$this->ProductModel->update_product_model($product_image);
-			unlink($this->input->post('old_pro_image',true));
+		//	unlink($this->input->post('old_pro_image',true));
 			$this->session->set_flashdata("update_pro_msg","Product Updated Successfully");
-			redirect('edit-product/'.$product_id);
+			redirect('product-list');
 		}
 			
 		}

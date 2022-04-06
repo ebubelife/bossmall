@@ -1,8 +1,9 @@
 
-<?php if(isset($main_header)){
+<?php 
 						echo $main_header;
-					}?>
-
+					?>
+ 
+ 
 
 <?php if(isset($main_content) && $main_content!=NULL){
 	echo $main_content; // Load a single page under header and footer
@@ -10,7 +11,13 @@
 	<section id="slider"><!--slider-->
 		<div class="container-fluid">
 			<div class="row main-slider">
-				<div class="col-sm-12">
+			    <br>
+			    	<?php if(isset($category_brand)){
+						echo $category_brand;
+
+						
+					}?>
+				<div class="col-sm-10">
 					<?php if(isset($slider)){
 						echo $slider;
 					}?>
@@ -21,6 +28,7 @@
 				</div>
 			</div>
 			<div class="row mobile-f-slider">
+			    
 				<div class="col-sm-12">
 				
 					
@@ -44,15 +52,18 @@
 	<section>
 		<div class="container-fluid main-container-fluid" id="section-1">
 			<div class="row">
-					<?php if(isset($category_brand)){
-						echo $category_brand;
-					}?>
+					
 
-
-				
-				<div class="col-sm-10 padding-right">
+				<div class="col-sm-12 padding-right">
 					<?php if(isset($feature)){
 						echo $feature;
+
+					
+					}?>
+
+<div class="col-sm-10 padding-right">
+					<?php if(isset($product_details)){
+						echo $product_details;
 
 					
 					}?>
@@ -76,6 +87,12 @@
 					}?>
 
 <br><br><br>
+
+	<?php if(isset($feature)){
+					//	echo $feature;
+
+					
+					}?>
 					
 <?php if(isset($full_intersect_banner)){
 						echo $full_intersect_banner;
@@ -91,7 +108,7 @@
 					}?>
 
 <?php if(isset($feature)){
-						echo $feature;
+						//echo $feature;
 
 					
 					}?>

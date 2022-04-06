@@ -17,7 +17,8 @@ class ProductModel extends CI_Model {
 		$data['pro_image'] = $product_image;
 		$data['top_product'] = $this->input->post('top_product',true);
 		$data['store_id'] = $this->input->post('store_name',true);
-
+		$getStoreDetails = $this->getStoreDetails($data['store_id']);
+		$data['merchant_id'] = $getStoreDetails->merchant_id;
 		$generatedNum = $this->generateProductNumber();
 		$data["prod_num"] = "p".$generatedNum;
 
@@ -65,6 +66,8 @@ class ProductModel extends CI_Model {
 			->result();
 			return $data;
 	}
+
+
 	public function get_all_top_product(){
 		$multiClause = array('top_product'=>1, 'trash' => 0);
 		$data = $this->db->select('*')
@@ -124,10 +127,12 @@ class ProductModel extends CI_Model {
 		$data = $this->db->select('*')
 			->from('tbl_product')
 			->where('trash',0)
-			->join('tbl_stores', 'tbl_stores.id = tbl_product.store_id AND tbl_stores.admin_approve = 1 AND  tbl_stores.store_status = 1')
+			
+		//	->join('tbl_stores', 'tbl_stores.id = tbl_product.store_id AND tbl_stores.admin_approve = 1 AND  tbl_stores.store_status = 1')
 						
 			->order_by('pro_id','desc')
 			->limit($limit)
+		
 			->get()
 			->result();
 			return $data;
@@ -146,6 +151,20 @@ class ProductModel extends CI_Model {
 		return $data;
 
 	}
+
+	public function get_cat_products_filter($cat_id,$limit){
+		$filter_array = array('trash'=>0,'pro_cat'=>$cat_id);
+
+	 $data = $this->db->select('*')
+	 ->from('tbl_product')
+	 ->where($filter_array)					
+	 ->order_by('pro_id','desc')
+	 ->limit($limit)
+	 ->get()
+	 ->result();
+	 return $data;
+
+ }
 
 	public function edit_product_model($product_id){
 		$data = $this->db->select('*')
@@ -170,8 +189,13 @@ class ProductModel extends CI_Model {
 		$data['pro_image'] = $product_image;
 		$data['top_product'] = $this->input->post('top_product',true);
 		$data['store_id'] = $this->input->post('store_name',true);
+
+		$getStoreDetails = $this->getStoreDetails($data['store_id']);
+		$data['merchant_id'] = $getStoreDetails->merchant_id;
 		$this->db->where('pro_id',$product_id);
 		$this->db->update('tbl_product',$data);
+
+		
 		
 	}
 	public function delete_product_model($product_id){
@@ -180,6 +204,18 @@ class ProductModel extends CI_Model {
 		unlink($product_image->pro_image);
 		$this->db->where('pro_id', $product_id);
 		$this->db->update('tbl_product',$data);
+	}
+
+	public function getStoreDetails($store_id){
+
+		$data = $this->db->select('*')
+		->from('tbl_stores')
+	
+		->where('id',$store_id)
+		->get()
+		->row();
+		return $data;
+
 	}
 	
 

@@ -12,7 +12,7 @@ class Store extends CI_Controller{
 		}
 		$data = array();
 		$this->load->model("ProductModel");
-		
+		$this->load->model("MerchantModel");
 		$this->load->model("InvoiceModel");
 		$this->load->model("StoreModel");
 		$this->load->model("MerchantModel");
@@ -67,6 +67,31 @@ class Store extends CI_Controller{
 		}
 	}
 
+	public function change_store_status(){
+
+		$status = $_POST["data"]; 
+		$status = json_decode($status);
+		$status_change = $this->StoreModel->change_store_status($status[0],$status[1]);
+
+		
+		   echo $status_change ;
+
+	}
+
+	
+	public function change_admin_approve(){
+
+		$approve = $_POST["data"]; 
+		$approve = json_decode($approve);
+		$status_change = $this->StoreModel->change_admin_approve($approve[0],$approve[1]);
+
+		
+		   echo $status_change ;
+
+	}
+
+
+
 
 
 
@@ -89,6 +114,9 @@ class Store extends CI_Controller{
      	$data["countries"] = $this->countries->return_countries();
 
 		$data['stores'] = $this->StoreModel->get_single_store($store_id);
+		$merchant = $this->merchantmodel->get_merchant($stores->merchant_id);
+
+		$data["merchant"] = $merchant;
 
 		
 		$data['main_content'] = $this->load->view('back/edit_store',$data,true);

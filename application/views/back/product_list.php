@@ -49,7 +49,12 @@
                                 <tr class="gradeC">
                                     <td><?php echo $i;?></td>
                                     <td><?php echo $value->pro_title;?></td>
-                                    <td><img src="<?php echo base_url().$value->pro_image;?>" width="80px" height="80px"/></td>
+                                    <td><img src="<?php
+                                    $img_arr = base64_decode($value->pro_image);
+                                    $img_arr = unserialize($img_arr);
+                                    $first_img = $img_arr[0];
+                                   
+                                   echo base_url().$first_img?>" width="80px" height="80px"/></td>
                                     <td>
                                        <?php if($value->pro_status==1){
                                             echo "Enable";

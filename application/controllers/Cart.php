@@ -22,6 +22,8 @@ class Cart extends CI_Controller{
 		return redirect("show-cart");
 	}
 	public function show_cart(){
+		$data = array();
+		$data['main_header'] = $this->load->view('front/main-header',$data,true);
 		$data['main_content'] = $this->load->view('front/view_cart','',true);
 		$this->load->view('front/index',$data);
 	}

@@ -17,6 +17,8 @@
        <p class="merch-details">Account Name: Alaye Philips</p>
        <p class="merch-details">Account No: 2245667711</p>
        <p class="merch-details">Bank: Access Bank</p>
+       <h3>Referred By:</h3>
+       <p class="merch-details">Account Name: Alaye Philips</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -75,7 +77,7 @@
                               <tr class="gradeC">
                                     
                               
-                              <td class="full-detail-trigger" data-toggle="modal" data-target="#myModal"><?php echo $value->first_name?> <?php echo $value->last_name?></td>
+                              <td><a href="<?php echo base_url()."merchant-details/".$value->id?>"><?php echo $value->first_name?> <?php echo $value->last_name?></a></td>
                               <td>2</td>
                               <td>12345</td>
                               <td>12345</td>
@@ -83,7 +85,7 @@
                               <td>12345</td>
                               <td>12356</td>
                               <td>
-                                        <a class="btn btn-info" href="<?php echo base_url()?>edit-product/<?php ?>"><i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-info" href="<?php echo base_url()?>edit-merchant/<?php echo $value->id ?>"><i class="fa fa-edit"></i></a>
                                         <a class="btn btn-danger" href="<?php echo base_url()?>delete-product/<?php ?>"><i class="fa fa-exclamation-triangle"></i></a>
                                     </td> 
                                     

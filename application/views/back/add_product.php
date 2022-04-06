@@ -110,13 +110,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Upload Product Image</label>
-                                    <input type="file" name="pro_image">
+                                    <input type="file" name="pro_image[]" id="pro_image" accept="image/*" multiple="multiple">
                                 </div>
+                               
                                  <div class="form-group">
                                     <label>Top Product</label>
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="top_product" value="1">Select top product
+                                            <input type="checkbox" name="top_product" value="1" >Select top product
                                         </label>
                                     </div>
                                 </div>

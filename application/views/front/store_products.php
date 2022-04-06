@@ -1,14 +1,19 @@
 <div class="features_items"><!--features_items-->
 	<h2 class="title text-center"><?php echo $section_title_one?></h2>
-	<?php $allproduct = $this->ProductModel->get_store_products_filter($this->uri->segment(2),8);?>
+	<?php $allproduct = $this->ProductModel->get_store_products_filter($this->uri->segment(2),36);?>
 	<?php foreach ($allproduct as $product) {?>
 	<?php if($product->pro_status==1){?>
 	<div class="col-sm-3 single-store-product col-single-fp"  >
 		<div class="product-image-wrapper" style="height:250px;">
 			<div class="single-products">
 				<div class="productinfo text-center">
-					<img src="<?php echo base_url().$product->pro_image?>" width="268px" height="249px" alt="" />
-					<h2 style="font-size:19px;">₦<?php echo $product->pro_price?>     <span style="font-size:16px;margin-left:10px;color:#8D8A8A"><s> ₦<?php echo $product->pro_price?></s></span></h2> 
+					<img src="<?php
+                                    $img_arr = base64_decode($product->pro_image);
+                                    $img_arr = unserialize($img_arr);
+                                    $first_img = $img_arr[0];
+                                   
+                                   echo base_url().$first_img?>" width="268px" height="249px" alt="" />
+					<h2 style="font-size:19px;">₦<?php echo $product->pro_price?>     <span style="font-size:16px;margin-left:10px;color:#8D8A8A"><s> ₦<?php echo $product->pro_regular_price?></s></span></h2> 
 					<p><?php echo $product->pro_title?></p>
 					<!--<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>-->
 				</div>
